@@ -37,7 +37,7 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <h2 class="dateToday">2/1/2020</h2>
-                        <div class="buttons">
+                        <div class="buttons pdfButton">
 
                             <a class="button is-light">
                                 Generate PDF
@@ -61,10 +61,10 @@
 
         <div class="column is-4 has-background-primary currency1">
             <div class="field">
-                <label class="label">Currency:</label>
+                <label class="label boxHeader">Currency:</label>
                 <div class="control">
                     <div class="select">
-                        <select class='box'>
+                        <select class='box1'>
                             <option>USD</option>
                             <option>EUR</option>
                             <option>JPY</option>
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="field">
-                <label class="label">Amount:
+                <label class="label amountText">Amount:
                 </label>
                 <div class="control">
                     <input class="input" type="text" placeholder="1.00" class="currency1Amount">
@@ -88,7 +88,7 @@
 
             <div class="column has-background-light country1data">
                 <p class="has-text-left updated1">Last Updated:</p>
-                <p id="country1price"></p>
+                <p id="updatedTime1"></p>
 
 
             </div>
@@ -100,12 +100,12 @@
         <div class="column is-2 has-background-blank blankArea"></div>
 
         <!-- Country 2 -->
-        <div class="column is-4 has-background-primary currency1">
+        <div class="column is-4 has-background-primary currency2">
             <div class="field">
-                <label class="label">Currency:</label>
+                <label class="label boxHeader">Currency:</label>
                 <div class="control">
                     <div class="select">
-                        <select class='box'>
+                        <select class='box2'>
                             <option>USD</option>
                             <option>EUR</option>
                             <option>JPY</option>
@@ -119,7 +119,7 @@
                 </div>
             </div>
             <div class="field">
-                <label class="label">Amount:
+                <label class="label amountText">Amount:
                 </label>
                 <div class="control">
                     <input class="input" type="text" placeholder="1.00" class="currency2Amount">
@@ -156,8 +156,8 @@
     
             <!-- Country 1-->
     
-            <div class="column is-4  calButton">
-                    <button class="button is-link">Calculate</button>
+            <div class="column is-4 ">
+                    <button class="button is-link calButton">Calculate</button>
     
             </div>
     
