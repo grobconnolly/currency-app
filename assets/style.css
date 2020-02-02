@@ -1,0 +1,36 @@
+/* 
+font-family: 'Righteous', cursive;
+font-family: 'Titillium Web', sans-serif; 
+*/
+
+.headerText{
+    font-family: 'Righteous', cursive;
+    font-size: 25px;
+}
+
+
+.currency1, .currency2{
+    height: 250px;
+}
+
+.currency1Data, .currency2Data{
+    height: 100px;
+}
+
+.currencyLogo {
+    font-size: 30px;
+    padding-top: 20%;
+}
+
+.box {
+    width: 15em;
+ 
+}
+
+.blankArea {
+    height: 50px;
+}
+
+.currency2data {
+    top: auto;
+}

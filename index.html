@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href='./assets/style.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous|Titillium+Web&display=swap" rel="stylesheet">
+
+    <title>CurrencyExchangePro</title>
+</head>
+
+<body>
+    <header>
+
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#">
+                    <h1 class='titleText'>CurrencyExhangePro</h1>
+                </a>
+
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+
+
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <h2 class="dateToday">2/1/2020</h2>
+                        <div class="buttons">
+
+                            <a class="button is-light">
+                                Generate PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Body-->
+
+    <!-- Image Top -->
+    <div class="columns">
+        <!-- Outer Colomn-->
+        <div class="column is-1">
+        </div>
+
+        <!-- Country 1-->
+
+        <div class="column is-4 has-background-primary currency1">
+            <div class="field">
+                <label class="label">Currency:</label>
+                <div class="control">
+                    <div class="select">
+                        <select class='box'>
+                            <option>USD</option>
+                            <option>EUR</option>
+                            <option>JPY</option>
+                            <option>GDP</option>
+                            <option>AUD</option>
+                            <option>CHF</option>
+                            <option>NZD</option>
+                            <option>CAD</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Amount:
+                </label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="1.00" class="currency1Amount">
+                </div>
+
+            </div>
+
+            <div class="column has-background-light country1data">
+                <p class="has-text-left updated1">Last Updated:</p>
+                <p id="country1price"></p>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- Blank Area Seperating-->
+        <div class="column is-2 has-background-blank blankArea"></div>
+
+        <!-- Country 2 -->
+        <div class="column is-4 has-background-primary currency1">
+            <div class="field">
+                <label class="label">Currency:</label>
+                <div class="control">
+                    <div class="select">
+                        <select class='box'>
+                            <option>USD</option>
+                            <option>EUR</option>
+                            <option>JPY</option>
+                            <option>GDP</option>
+                            <option>AUD</option>
+                            <option>CHF</option>
+                            <option>NZD</option>
+                            <option>CAD</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Amount:
+                </label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="1.00" class="currency2Amount">
+                </div>
+
+            </div>
+
+
+            <div class="column has-background-light top-auto currency2data">
+                <p class="has-text-left updated2">Last Updated:</p>
+                <p id="country2price"></p>
+
+
+            </div>
+
+        </div>
+
+        <!-- Outer Colomn-->
+        <div class="column is-1">
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- section 2 -->
+    <div class="columns">
+            <!-- Outer Colomn-->
+            <div class="column is-1">
+            </div>
+    
+            <!-- Country 1-->
+    
+            <div class="column is-4  calButton">
+                    <button class="button is-link">Calculate</button>
+    
+            </div>
+    
+    
+            <!-- Blank Area Seperating-->
+            <div class="column is-2">
+                
+            </div>
+    
+            <!-- Country 2 -->
+            <div class="column is-4">
+            </div>
+    
+            <!-- Outer Colomn-->
+            <div class="column is-1">
+                
+            </div>
+    
+        </div>
+    </div>
+
+</body>
+
+</html>
