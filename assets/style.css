@@ -34,3 +34,7 @@
 .currency2data {
     top: auto;
 }
+
+buttons pdfButton{
+    text-align: right;
+}
