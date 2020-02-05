@@ -40,18 +40,8 @@ let calButton = $("#calButton");
 button.addEventListener("click", function(name){
     fetch("http://data.fixer.io/api/latest?access_key=046374ead830a8a183f4c823ed1d0bc2")
 
-
-
 });
 
-
-
-
-// Build onClick dropDown functions for box 1 and box 2
-// When user clicks dropDown 
-$(select).on("click", function (event) {
-
-});
 
 
 // Build onClick calculate function for calButton
