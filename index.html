@@ -15,7 +15,7 @@
 <body>
     <header>
 
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+        <nav class="navbar has-background-grey-lighter is-focused" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item" href="#">
                     <h1 class='titleText'>CurrencyExhangePro</h1>
@@ -46,7 +46,7 @@
     <!-- Body-->
 
     <!-- Image Top -->
-    <div class="columns">
+    <div class="columns mainArea mainbox">
         <!-- Outer Colomn-->
         <div class="column is-1">
         </div>
@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="field">
-                <label class="label ammountText">Ammount:
+                <label class="label ammountText">Amount:
                 </label>
                 <div class="control">
                     <input class="input" type="text" placeholder="1.00" id="currency1Ammount">
@@ -113,7 +113,7 @@
                 </div>
             </div>
             <div class="field">
-                <label class="label ammountText">Ammount:
+                <label class="label ammountText">Amount:
                 </label>
                 <div class="control">
                     <input class="input" type="text" placeholder="1.00" id="currency2Ammount">
@@ -130,105 +130,109 @@
             </div>
 
         </div>
-        
+
         <!-- Outer Colomn-->
         <div class="column is-1">
 
         </div>
 
     </div>
-    
+
 
 
     <!-- section 2 -->
-    <div class="columns">
-<<<<<<< HEAD
-            <!-- Outer Colomn-->
-            <div class="column is-1">
-            </div>
-    
-            <!-- Country 1-->
-    
-            <div class="column is-4 ">
-                    <button class="button is-link calButton">Calculate</button>
-    
-            </div>
-    
-    
-            <!-- Blank Area Seperating-->
-            <div class="column is-2">
-                
-            </div>
-    
-            <!-- Country 2 -->
-            <div class="column is-4">
-            </div>
-            
-            <!-- Outer Colomn-->
-            <div class="column is-1">
-                
-            </div>
-            
-        </div>
-        <div class="buttons pdfButton">
-
-            <a class="button is-light">
-                Generate PDF
-            </a>
-=======
+    <div class="columns mainArea">
         <!-- Outer Colomn-->
         <div class="column is-1">
         </div>
 
         <!-- Country 1-->
 
-        <div class="column is-4 ">
-            <button class="button is-link" id="calButton">Calculate</button>
+        <div class="column is-6 calButton">
+            <button id="calBtn" class="button is-link calButton">Calculate</button>
 
         </div>
-
-
-        <!-- Blank Area Seperating-->
-        <div class="column is-2">
-
-        </div>
-
-        <!-- Country 2 -->
-        <div class="column is-4">
-        </div>
-    </div>
-    <!-- Outer Colomn-->
-    <div class='container w-50'>
-        <div class="column has-text-centered is-size-4">
-            Last 5 Currency Checks
-        </div>
-        <div class="columns">
-            <div class="column">
-                First column
+        <div class="column is-6 pdfButton">
+                <button id="pdfBtn" class="button is-link pdfButton">Generate PDF</button>
             </div>
-            <div class="column">
-                Second column
-            </div>
-        </div>
-        <div class="columns">
+        
 
-            <div class="column">
-                Third column
+            <!-- Blank Area Seperating-->
+            <div class="column is-2">
+
             </div>
-            <div class="column">
-                Fourth column
+
+            <!-- Country 2 -->
+            <div class="column is-4">
             </div>
+
+            <!-- Outer Colomn-->
+            <div class="column is-1">
+
+            </div>
+
         </div>
-        <div class='columns'>
 
 
-            <div class="column">
-                fifth column
-            </div>
->>>>>>> d9494928ed930d22d4fa1aad281c5e8609bbc35e
-        </div>
     </div>
 
+    <div class="columns is-mobile last5 fiveArea">
+        <div class="column is-half is-offset-one-quarter has-background-primary	 has-text-centered fiveArea is-focused">Last 5 Currency
+            Checks</div>
+    </div>
+    <div class="container-fluid fiveArea">
+            <div class="columns is-centered fiveArea">
+                <div class="column is-narrow fiveArea">
+                    <table class="table fiveArea">
+                        <tr>
+                            <th>Currency 1 </th>
+                            <th>Currency 1 rate</th>
+                            <th>Currency 2</th>
+                            <th>Currency 2 rate</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="ck1cur1">USD</td>
+                                <td id="ck1rate1">1.00</td>
+                                <td id="ck1cur2">MXN</td>
+                                <td id="ck1rate2">18.61</td>
+
+                            </tr>
+                            <tr>
+                                <td id="ck2cur1">USD</td>
+                                <td id="ck2rate1">1.00</td>
+                                <td id="ck2cur2">MXN</td>
+                                <td id="ck2rate2">18.61</td>
+                            </tr>
+                            <tr>
+                                <td id="ck3cur1">USD</td>
+                                <td id="ck3rate1">1.00</td>
+                                <td id="ck3cur2">MXN</td>
+                                <td id="ck3rate2">18.61</td>
+                            </tr>
+                            <tr>
+                                <td id="ck4cur1">USD</td>
+                                <td id="ck4rate1">1.00</td>
+                                <td id="ck4cur2">MXN</td>
+                                <td id="ck4rate2">18.61</td>
+                            </tr>
+                            <tr>
+                                <td id="ck5cur1">USD</td>
+                                <td id="ck5rate1">1.00</td>
+                                <td id="ck5cur2">MXN</td>
+                                <td id="ck5rate2">18.61</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                </table>
+            </div>
+    </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
