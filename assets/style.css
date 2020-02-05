@@ -1,7 +1,7 @@
-/* 
-font-family: 'Righteous', cursive;
-font-family: 'Titillium Web', sans-serif; 
-*/
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+} 
+
 
 .headerText{
     font-family: 'Righteous', cursive;
