@@ -14,20 +14,20 @@ let amountText = $(".amountText");
 
 let currency1 = $(".currency1");
 let select = $(".select");
-let box1 = $(".box1");
-let currency1Amount = $(".currency1Amount");
+let box1 = $("#box1");
+let currency1Amount = $("#currency1Amount");
 let updated1 = $(".updated1");
 let updatedTime1 = $("#updatedTime1");
 
 let blankArea = $(".blankArea");
 
 let currency2 = $(".currency2");
-let box2 = $(".box2");
-let currency2Amount = $(".currency2Amount");
-let updated2 = $(".updated2");
+let box2 = $("#box2");
+let currency2Amount = $("#currency2Amount");
+let updated2 = $("#updated2");
 let country2price = $("#country2price");
 
-let calButton = $(".calButton");
+let calButton = $("#calButton");
 
 
 //-----BUILDING FUNCTIONS-----
@@ -44,9 +44,12 @@ $(calButton).on("click", function (event) {
 
 });
 
+
+
 // Build onClick generate PDF function for 'a'
 // When user clicks 'a', a PDF is generated including 'a screenshot of the app in its current state'.
 // Then a link to a PDF is generated and then opened in the new window.
+<<<<<<< HEAD
 // $(pdfButton).on("click", function (event) {
 //     if (typeof doc.print === 'undefined') {    
 //         setTimeout(function(){printDocument(documentId);}, 1000);
@@ -59,6 +62,28 @@ $(calButton).on("click", function (event) {
 //     id="pdfDocument"
 //     width="100%"
 //     height="100%" />
+=======
+{
+    /* <embed
+        type="application/pdf"
+        src="path_to_pdf_document.pdf"
+        id="pdfDocument"
+        width="100%"
+        height="100%" />
+     */}
+
+//     $(pdfButton).on("click", function (event) {
+//         function printDocument(documentId) {
+//             var doc = document.getElementById(documentId);
+        
+//             //Wait until PDF is ready to print    
+//             if (typeof doc.print === 'undefined') {    
+//                 setTimeout(function(){printDocument(documentId);}, 1000);
+//             } else {
+//                 doc.print();
+//             }
+//         }
+>>>>>>> d9494928ed930d22d4fa1aad281c5e8609bbc35e
 // });
 
 
