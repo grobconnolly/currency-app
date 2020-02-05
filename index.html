@@ -64,7 +64,7 @@
                 <label class="label boxHeader">Currency:</label>
                 <div class="control">
                     <div class="select">
-                        <select class='box1'>
+                        <select id='box1'>
                             <option>United States- Dollar (USD)</option>
                             <option>European Union- Euro (EUR)</option>
                             <option>Japan- Yen (JPY)</option>
@@ -81,7 +81,7 @@
                 <label class="label amountText">Amount:
                 </label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="1.00" class="currency1Amount">
+                    <input class="input" type="text" placeholder="1.00" id="currency1Amount">
                 </div>
 
             </div>
@@ -105,7 +105,7 @@
                 <label class="label boxHeader">Currency:</label>
                 <div class="control">
                     <div class="select">
-                        <select class='box2'>
+                        <select id='box2'>
                             <option>United States- Dollar (USD)</option>
                             <option>European Union- Euro (EUR)</option>
                             <option>Japan- Yen (JPY)</option>
@@ -122,14 +122,14 @@
                 <label class="label amountText">Amount:
                 </label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="1.00" class="currency2Amount">
+                    <input class="input" type="text" placeholder="1.00" id="currency2Amount">
                 </div>
 
             </div>
 
 
             <div class="column has-background-light top-auto currency2data">
-                <p class="has-text-left updated2">Last Updated:</p>
+                <p class="has-text-left" id="updated2">Last Updated:</p>
                 <p id="country2price"></p>
 
 
@@ -146,41 +146,47 @@
 
 
 
-
-
     <!-- section 2 -->
     <div class="columns">
-            <!-- Outer Colomn-->
-            <div class="column is-1">
+        <!-- Outer Colomn-->
+        <div class="column is-1">
+        </div>
+
+        <!-- Country 1-->
+
+        <div class="column is-4 ">
+            <button class="button is-link" id= "calButton">Calculate</button>
+
+        </div>
+
+
+        <!-- Blank Area Seperating-->
+        <div class="column is-2">
+
+        </div>
+
+        <!-- Country 2 -->
+        <div class="column is-4">
+        </div>
+
+        <!-- Outer Colomn-->
+        <div class="column is-1">
+
+        </div>
+
+    </div>
+
+    <div class='columns'>
+        <div class='columns'>
+            <div class="section">
+                <h1>Hello</h1>
             </div>
-    
-            <!-- Country 1-->
-    
-            <div class="column is-4 ">
-                    <button class="button is-link calButton">Calculate</button>
-    
-            </div>
-    
-    
-            <!-- Blank Area Seperating-->
-            <div class="column is-2">
-                
-            </div>
-    
-            <!-- Country 2 -->
-            <div class="column is-4">
-            </div>
-    
-            <!-- Outer Colomn-->
-            <div class="column is-1">
-                
-            </div>
-    
         </div>
     </div>
-    <script src = "https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src = "./assets/logic.js"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/logic.js"></script>
 </body>
 
 </html>

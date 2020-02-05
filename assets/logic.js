@@ -14,20 +14,20 @@ let amountText = $(".amountText");
 
 let currency1 = $(".currency1");
 let select = $(".select");
-let box1 = $(".box1");
-let currency1Amount = $(".currency1Amount");
+let box1 = $("#box1");
+let currency1Amount = $("#currency1Amount");
 let updated1 = $(".updated1");
 let updatedTime1 = $("#updatedTime1");
 
 let blankArea = $(".blankArea");
 
 let currency2 = $(".currency2");
-let box2 = $(".box2");
-let currency2Amount = $(".currency2Amount");
-let updated2 = $(".updated2");
+let box2 = $("#box2");
+let currency2Amount = $("#currency2Amount");
+let updated2 = $("#updated2");
 let country2price = $("#country2price");
 
-let calButton = $(".calButton");
+let calButton = $("#calButton");
 
 
 //-----BUILDING FUNCTIONS-----
