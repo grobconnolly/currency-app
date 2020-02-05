@@ -1,3 +1,6 @@
+//Current date using moment.js
+moment().format("MMM Do YY");
+
 // Wait until Dom has completed loading
 $(document).ready(function() {
 
@@ -49,21 +52,6 @@ $(calButton).on("click", function (event) {
 // Build onClick generate PDF function for 'a'
 // When user clicks 'a', a PDF is generated including 'a screenshot of the app in its current state'.
 // Then a link to a PDF is generated and then opened in the new window.
-<<<<<<< HEAD
-// $(pdfButton).on("click", function (event) {
-//     if (typeof doc.print === 'undefined') {    
-//         setTimeout(function(){printDocument(documentId);}, 1000);
-//     } else {
-//         doc.print();
-//     }
-// <embed
-//     type="application/pdf"
-//     src="path_to_pdf_document.pdf"
-//     id="pdfDocument"
-//     width="100%"
-//     height="100%" />
-=======
-{
     /* <embed
         type="application/pdf"
         src="path_to_pdf_document.pdf"
@@ -83,7 +71,6 @@ $(calButton).on("click", function (event) {
 //                 doc.print();
 //             }
 //         }
->>>>>>> d9494928ed930d22d4fa1aad281c5e8609bbc35e
 // });
 
 
