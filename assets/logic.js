@@ -10,12 +10,12 @@ let dateToday = $(".dateToday");
 let pdfButton = $(".pdfButton");
 
 let boxHeader = $(".boxHeader");
-let amountText = $(".amountText");
+let amountText = $(".ammountText");
 
 let currency1 = $(".currency1");
 let select = $(".select");
 let box1 = $("#box1");
-let currency1Amount = $("#currency1Amount");
+let currency1Amount = $("#currency1Ammount");
 let updated1 = $(".updated1");
 let updatedTime1 = $("#updatedTime1");
 
@@ -23,7 +23,7 @@ let blankArea = $(".blankArea");
 
 let currency2 = $(".currency2");
 let box2 = $("#box2");
-let currency2Amount = $("#currency2Amount");
+let currency2Amount = $("#currency2Ammount");
 let updated2 = $("#updated2");
 let country2price = $("#country2price");
 
