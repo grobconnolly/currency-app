@@ -44,22 +44,32 @@ $(calButton).on("click", function (event) {
 
 });
 
+
+
 // Build onClick generate PDF function for 'a'
 // When user clicks 'a', a PDF is generated including 'a screenshot of the app in its current state'.
 // Then a link to a PDF is generated and then opened in the new window.
-$(pdfButton).on("click", function (event) {
-    if (typeof doc.print === 'undefined') {    
-        setTimeout(function(){printDocument(documentId);}, 1000);
-    } else {
-        doc.print();
-    }
-<embed
-    type="application/pdf"
-    src="path_to_pdf_document.pdf"
-    id="pdfDocument"
-    width="100%"
-    height="100%" />
-});
+{
+    /* <embed
+        type="application/pdf"
+        src="path_to_pdf_document.pdf"
+        id="pdfDocument"
+        width="100%"
+        height="100%" />
+     */}
+
+//     $(pdfButton).on("click", function (event) {
+//         function printDocument(documentId) {
+//             var doc = document.getElementById(documentId);
+        
+//             //Wait until PDF is ready to print    
+//             if (typeof doc.print === 'undefined') {    
+//                 setTimeout(function(){printDocument(documentId);}, 1000);
+//             } else {
+//                 doc.print();
+//             }
+//         }
+// });
 
 
 //-----CALLING FUNCTIONS-----
