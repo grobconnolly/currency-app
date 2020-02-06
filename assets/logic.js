@@ -1,3 +1,6 @@
+//Current date using moment.js
+moment().format("MMM Do YY");
+
 // Wait until Dom has completed loading
 $(document).ready(function() {
 
@@ -6,7 +9,12 @@ console.log("logic.js is successfully linked");
 
 //-----DECLARING GLOBAL VARIABLES-----
 let titleText = $(".titleText");
+
+// Display Current Date at top of app
 let dateToday = $(".dateToday");
+let currentDate = moment().format('dddd') + " " + moment().format("MMM Do");
+dateToday.text(currentDate);
+
 let pdfButton = $(".pdfButton");
 
 let boxHeader = $(".boxHeader");
@@ -31,11 +39,12 @@ let calButton = $("#calButton");
 
 
 //-----BUILDING FUNCTIONS-----
-// Build onClick dropDown functions for box 1 and box 2
-// When user clicks dropDown 
-$(select).on("click", function (event) {
-
+// API pull for the currencies to be added to dropdown
+button.addEventListener("click", function(name){
+    fetch("http://data.fixer.io/api/latest?access_key=046374ead830a8a183f4c823ed1d0bc2")
+for(i = 0; i<currency1.currency2; i++);
 });
+
 
 
 // Build onClick calculate function for calButton
@@ -61,13 +70,33 @@ $(calButton).on("click", function (event) {
 //     id="pdfDocument"
 //     width="100%"
 //     height="100%" />
+<<<<<<< HEAD
+=======
+
+    /* <embed
+        type="application/pdf"
+        src="path_to_pdf_document.pdf"
+        id="pdfDocument"
+        width="100%"
+        height="100%" />
+     */
+
+//     $(pdfButton).on("click", function (event) {
+//         function printDocument(documentId) {
+//             var doc = document.getElementById(documentId);
+        
+//             //Wait until PDF is ready to print    
+//             if (typeof doc.print === 'undefined') {    
+//                 setTimeout(function(){printDocument(documentId);}, 1000);
+//             } else {
+//                 doc.print();
+//             }
+//         }
+>>>>>>> beceb58216a3fffafbb23933a0ebb11338ca81cb
 // });
 
 
 //-----CALLING FUNCTIONS-----
-button.addEventListener("click", function(name)){
-    fetch("http://data.fixer.io/api/latest?access_key=046374ead830a8a183f4c823ed1d0bc2")
-}
 
 
 });

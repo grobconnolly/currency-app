@@ -5,7 +5,8 @@
 
 .headerText{
     font-family: 'Righteous', cursive;
-    font-size: 25px;
+    font-size: 45px;
+    text-align: center;
 }
 
 
@@ -35,6 +36,7 @@
     top: auto;
 }
 
+<<<<<<< HEAD
 .buttons pdfButton{
     text-align: right;
 }
@@ -151,3 +153,9 @@ background-color: rgb(209, 209, 233);
 .mainbox {
     padding: 30px;
 }
+=======
+.buttons-pdfButton{
+    text-align: right;
+}
+
+>>>>>>> beceb58216a3fffafbb23933a0ebb11338ca81cb
