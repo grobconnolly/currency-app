@@ -36,6 +36,7 @@
     top: auto;
 }
 
-buttons pdfButton{
+.buttons-pdfButton{
     text-align: right;
 }
+

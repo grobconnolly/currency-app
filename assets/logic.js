@@ -42,7 +42,7 @@ let calButton = $("#calButton");
 // API pull for the currencies to be added to dropdown
 button.addEventListener("click", function(name){
     fetch("http://data.fixer.io/api/latest?access_key=046374ead830a8a183f4c823ed1d0bc2")
-
+for(i = 0; i<currency1.currency2; i++);
 });
 
 
