@@ -70,29 +70,6 @@ $(calButton).on("click", function (event) {
 //     id="pdfDocument"
 //     width="100%"
 //     height="100%" />
-<<<<<<< HEAD
-=======
-
-    /* <embed
-        type="application/pdf"
-        src="path_to_pdf_document.pdf"
-        id="pdfDocument"
-        width="100%"
-        height="100%" />
-     */
-
-//     $(pdfButton).on("click", function (event) {
-//         function printDocument(documentId) {
-//             var doc = document.getElementById(documentId);
-        
-//             //Wait until PDF is ready to print    
-//             if (typeof doc.print === 'undefined') {    
-//                 setTimeout(function(){printDocument(documentId);}, 1000);
-//             } else {
-//                 doc.print();
-//             }
-//         }
->>>>>>> beceb58216a3fffafbb23933a0ebb11338ca81cb
 // });
 
 
