@@ -54,17 +54,17 @@ function grabCurrencyList() {
     })
     // After the data from the AJAX request comes back
     .then(function(response) {
-        console.log(response);
+        console.log("response.list", response);
         // Saving the Currency List Data
-        currencyList = response.currencies;
-        console.log(Object.keys(currencyList));
-            
+        currencyList = response.currencies;            
         
         currencyListArray = JSON.stringify(response.currencies);
         currencyListString = currencyListArray;
-        console.log(currencyList);
+        console.log("response.currencies", currencyList);
         console.log("# of Currencies supported on next line");
         console.log(currencyListArray.length);
+        console.log("List of Currency Codes", Object.keys(currencyList));
+        currencyKeys = Object.keys(currencyList);
     
         // API pull for live currencies to be added to dropdown
         console.log("Popluating Dropdown lists...");
@@ -77,8 +77,6 @@ function grabCurrencyList() {
         $.each(currencyList, function(i, currency) {
             box2.append("<option>" + currency + "" + "</option>");
         });
-        console.log(response.currencies);
-        // console.log(currencyListString);
         console.log("Dropdown lists have been populated");
 
         // Creating variable that contains all available currencies as a string
@@ -123,7 +121,7 @@ function grabCurrencyList() {
 $(calButton).on("click", function (event) {
 
     // Storing our URL for a 'Live' currency request
-    liveQueryURL = "http://api.currencylayer.com/live?access_key=4e8b520592221b3422775e55f28b2a2a&currencies=" + currencyStringJoin + "&format=1";
+    liveQueryURL = "http://api.currencylayer.com/live?access_key=4e8b520592221b3422775e55f28b2a2a&currencies=" + currencyKeys + "&format=1";
 
     // Perfoming an AJAX GET request to our 'Live' queryURL
     $.ajax({
@@ -132,8 +130,8 @@ $(calButton).on("click", function (event) {
     })
     // After the data from the AJAX request comes back
     .then(function(response) {
-        console.log(response);
-        console.log(response.quotes);
+        console.log("live currency response", response);
+        console.log("response.quotes", response.quotes);
 
         // Saving the Live Currency Data
         let liveResponse = response;
