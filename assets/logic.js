@@ -28,11 +28,11 @@ let box2 = $("#box2");
 let currency2Ammount = $("#currency2Ammount").val();
 let updated2 = $("#updated2");
         // let country2price = $("#country2price");
-let calButton = $("#calButton");
+let calButton = $("#calBtn");
 let pdfButton = $(".pdfButton");
 
-// Storing our URL for a 'Live' currency request
-liveQueryURL = "http://www.api.currencylayer.com/live?access_key=4e8b520592221b3422775e55f28b2a2a&currencies=" + "";
+let currencyListString;
+let currencyStringJoin;
 
 // Storing our URL for a 'Historical' currency request
 // historicalQueryURL = "http://www.api.currencylayer.com/historical?access_key=4e8b520592221b3422775e55f28b2a2a;"
@@ -57,7 +57,11 @@ function grabCurrencyList() {
         console.log(response);
         // Saving the Currency List Data
         currencyList = response.currencies;
+        console.log(Object.keys(currencyList));
+            
+        
         currencyListArray = JSON.stringify(response.currencies);
+        currencyListString = currencyListArray;
         console.log(currencyList);
         console.log("# of Currencies supported on next line");
         console.log(currencyListArray.length);
@@ -67,14 +71,21 @@ function grabCurrencyList() {
         // For each currency in the currency list array,
         
         $.each(currencyList, function(i, currency) {
-            box1.append("<option>" + currency + "</option>");
+            box1.append("<option>" + currency + "" + "</option>");
         });
 
         $.each(currencyList, function(i, currency) {
-            box2.append("<option>" + currency + "</option>");
+            box2.append("<option>" + currency + "" + "</option>");
         });
+        console.log(response.currencies);
+        // console.log(currencyListString);
+        console.log("Dropdown lists have been populated");
+
+        // Creating variable that contains all available currencies as a string
+                // currencyStringJoin = currencyListString.join(",");
+                // console.log(currencyStringJoin);
         
-        // Commenting put below for loop for now
+        // Commenting out below for loop for now; replaced by above .each functions
                 // for (i = 0; i <= currencyListArray.length; i++) {
                 //     // Creating variable for options in dropDown menus
                 //     let currencyOptions = $("<option>");
@@ -95,7 +106,7 @@ function grabCurrencyList() {
                 // };
     });
 };
-    
+
 
 
 // --Commenting out below function for now--
@@ -105,28 +116,32 @@ function grabCurrencyList() {
         // });
 
 
-
 // Build onClick calculate function for calButton
 // When user clicks calButton, 
 
-// Commented out until prerequisite functionality is in
-// $(calButton).on("click", function (event) {
 
-//     // Perfoming an AJAX GET request to our 'Live' queryURL
-//     $.ajax({
-//         url: liveQueryURL,
-//         method: "GET"
-//     })
-//     // After the data from the AJAX request comes back
-//     .then(function(response) {
-//         // Saving the Live Currency Data
-//         var liveResponse = response.data;
-//         // Displaying the currency2 value
-//         currency2Ammount.text("");
-//     });
+$(calButton).on("click", function (event) {
 
-// });
+    // Storing our URL for a 'Live' currency request
+    liveQueryURL = "http://api.currencylayer.com/live?access_key=4e8b520592221b3422775e55f28b2a2a&currencies=" + currencyStringJoin + "&format=1";
 
+    // Perfoming an AJAX GET request to our 'Live' queryURL
+    $.ajax({
+        url: liveQueryURL,
+        method: "GET"
+    })
+    // After the data from the AJAX request comes back
+    .then(function(response) {
+        console.log(response);
+        console.log(response.quotes);
+
+        // Saving the Live Currency Data
+        let liveResponse = response;
+        // Displaying the currency2 value
+        // currency2Ammount.text("");
+    });
+
+});
 
 
 // Build onClick generate PDF function for 'a'
@@ -147,6 +162,7 @@ function grabCurrencyList() {
         //     width="100%"
         //     height="100%" />
         // });
+
 
 
 //-----CALLING FUNCTIONS-----
