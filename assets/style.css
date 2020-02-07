@@ -1,3 +1,13 @@
+/*  Color Pallet 
+
+●	Color Palet:
+●	Green: 465A4F
+●	Gray: EFEAE9
+●	Crangeream: FCF9F2
+●	Orange: FD633F 
+
+*/ 
+
 *{
     font-family: Georgia, 'Times New Roman', Times, serif;
 } 
@@ -36,7 +46,6 @@
     top: auto;
 }
 
-<<<<<<< HEAD
 .buttons pdfButton{
     text-align: right;
 }
@@ -136,26 +145,87 @@ $table-cell-border-width: 0 0 1px !default
 
 .calButton, .pdfButton{
     width: 150px;
+    
 }
 
 .last5 {
     padding: 30px;
 }
 
-.mainArea {
-background-color: rgb(209, 209, 233);
-}
 
-.fiveArea {
-    background-color: rgb(195, 247, 243);
-}
 
 .mainbox {
     padding: 30px;
 }
-=======
-.buttons-pdfButton{
-    text-align: right;
+
+#color1 {
+  background-color: #465A4F;
 }
 
->>>>>>> beceb58216a3fffafbb23933a0ebb11338ca81cb
+#color1withBorder {
+  background-color: #465A4F;
+  border: white;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#color2{
+  background-color: #E0D4CB;
+}
+
+#color2withBorder{
+  background-color: #E0D4CB;
+  border: white;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#color3{
+  background-color: #BB9E7C;
+  border: white;
+  border-style: solid;
+  border-width: 20px;
+}
+
+#color4{
+  background-color: #FD633F;
+}
+
+#calBtn, #pdfBtn{
+  background-color: #BB9E7C;
+}
+
+#calBtn{
+  left: 2%;
+}
+
+#pdfBtn{
+  right: 3%;
+}
+
+#fontColor3{
+  color: white;
+  font-size: 20px;
+}
+
+.fontColor3{
+  color: white;
+  font-size: 20px;
+}
+
+.fontColor1{
+  color: black;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px){
+#calBtn{
+bottom: 40px;
+left: 65%;
+}
+
+#pdfBtn{
+  bottom: 100px;
+  left: 10%;
+}
+}
