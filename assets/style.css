@@ -53,10 +53,10 @@
 
 .hero
   .title a
-    text-decoration: underline
+    text-decoration: underline;
   
 h1
-  font-size: 2em
+  font-size: 2em;
 
 $grey-lighter: hsl(0, 0%, 86%) !default
 $table-cell-border: 1px solid $grey-lighter !default
@@ -157,6 +157,7 @@ $table-cell-border-width: 0 0 1px !default
 .mainbox {
     padding: 30px;
 }
+<<<<<<< HEAD
 
 #color1 {
   background-color: #465A4F;
@@ -229,3 +230,5 @@ left: 65%;
   left: 10%;
 }
 }
+=======
+>>>>>>> 44bda56a3632ecc804f5884093e401d3d09c1899
