@@ -32,7 +32,7 @@ let calButton = $("#calBtn");
 let pdfButton = $(".pdfButton");
 
 let currencyListString;
-let currencyStringJoin;
+// let currencyStringJoin;
 
 // Storing our URL for a 'Historical' currency request
 // historicalQueryURL = "http://www.api.currencylayer.com/historical?access_key=4e8b520592221b3422775e55f28b2a2a;"
