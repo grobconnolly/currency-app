@@ -61,8 +61,8 @@ function grabCurrencyList() {
         currencyListArray = JSON.stringify(response.currencies);
         currencyListString = currencyListArray;
         console.log("response.currencies", currencyList);
-        console.log("# of Currencies supported on next line");
-        console.log(currencyListArray.length);
+        // console.log("# of Currencies supported on next line");
+        // console.log(currencyListArray.length);
         console.log("List of Currency Codes", Object.keys(currencyList));
         currencyKeys = Object.keys(currencyList);
     
