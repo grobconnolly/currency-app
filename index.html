@@ -8,7 +8,7 @@
     <link rel="stylesheet" href='./assets/style.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
     <link href="https://fonts.googleapis.com/css?family=Righteous|Titillium+Web&display=swap" rel="stylesheet">
-
+<div id="currencyPDF">
     <title> CurrencyExchangePro V2 </title>
 </head>
 
@@ -109,8 +109,8 @@
 
 
             <div class="column has-background-light top-auto currency2data">
-                <p class="has-text-left" id="updated2">Last Updated:</p>
-                <p id="country2price"></p>
+                <p class="has-text-left" id="updated2">Exchange Rate:</p>
+                <p id="exchange"></p>
 
 
             </div>
@@ -139,7 +139,7 @@
 
         </div>
         <div class="column is-6" id="color1">
-            <button id="pdfBtn" class="button pdfButton color4">Generate PDF</button>
+            <button id="pdfBtn" class="button pdfButton color4"><a href="javascript:demoFromHTML()">Generate PDF</a> </button>
         </div>
 
 
@@ -210,11 +210,13 @@
         </div>
     </div>
     </div>
-    </div>
-
+    </div></div>
+    
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/logic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
 </body>
 
 </html>
