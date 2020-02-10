@@ -1,8 +1,10 @@
-//Current date using moment.js
-moment().format("MMM Do YY");
+
 
 // Wait until Dom has completed loading
 $(document).ready(function() {
+
+//Current date using moment.js
+// moment().format("MMM Do YY");
 
 // Check that script is successfully linked to index.html
 console.log("logic.js is successfully linked");
