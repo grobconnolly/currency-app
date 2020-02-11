@@ -52,13 +52,13 @@
 
 
 .hero
-  .title a
+  .title a {
     text-decoration: underline;
-  
-h1
+}
+h1 {
   font-size: 2em;
-
-$grey-lighter: hsl(0, 0%, 86%) !default
+}
+grey-lighter: hsl(0, 0%, 86%) !default
 $table-cell-border: 1px solid $grey-lighter !default
 $table-cell-border-width: 0 0 1px !default
 
@@ -157,78 +157,3 @@ $table-cell-border-width: 0 0 1px !default
 .mainbox {
     padding: 30px;
 }
-<<<<<<< HEAD
-
-#color1 {
-  background-color: #465A4F;
-}
-
-#color1withBorder {
-  background-color: #465A4F;
-  border: white;
-  border-style: solid;
-  border-width: 2px;
-}
-
-#color2{
-  background-color: #E0D4CB;
-}
-
-#color2withBorder{
-  background-color: #E0D4CB;
-  border: white;
-  border-style: solid;
-  border-width: 2px;
-}
-
-#color3{
-  background-color: #BB9E7C;
-  border: white;
-  border-style: solid;
-  border-width: 20px;
-}
-
-#color4{
-  background-color: #FD633F;
-}
-
-#calBtn, #pdfBtn{
-  background-color: #BB9E7C;
-}
-
-#calBtn{
-  left: 2%;
-}
-
-#pdfBtn{
-  right: 3%;
-}
-
-#fontColor3{
-  color: white;
-  font-size: 20px;
-}
-
-.fontColor3{
-  color: white;
-  font-size: 20px;
-}
-
-.fontColor1{
-  color: black;
-  font-size: 20px;
-}
-
-@media screen and (max-width: 768px){
-#calBtn{
-bottom: 40px;
-left: 65%;
-}
-
-#pdfBtn{
-  bottom: 100px;
-  left: 10%;
-}
-}
-=======
->>>>>>> 44bda56a3632ecc804f5884093e401d3d09c1899

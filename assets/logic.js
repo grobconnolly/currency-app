@@ -8,41 +8,28 @@ $(document).ready(function() {
 console.log("logic.js is successfully linked");
 
 //-----DECLARING GLOBAL VARIABLES-----
-let titleText = $(".titleText");
-
-// Display Current Date at top of app
 let dateToday = $(".dateToday");
 let currentDate = moment().format('dddd') + " " + moment().format("MMM Do");
-dateToday.text(currentDate);
-let boxHeader = $(".boxHeader");
-        // let amountText = $(".ammountText");
-        // let currency1 = $(".currency1");
-        // let select = $(".select");
+    // let boxHeader = $(".boxHeader");
 let box1 = $("#box1");
-let currency1Ammount = $("#currency1Ammount").val();
 let updated1 = $(".updated1");
-        // let updatedTime1 = $("#updatedTime1");
-let blankArea = $(".blankArea");
-        // let currency2 = $(".currency2");
-let box2 = $("#box2");
-let currency2Ammount = $("#currency2Ammount").val();
 let updated2 = $("#updated2");
-        // let country2price = $("#country2price");
+    // let blankArea = $(".blankArea");
+let box2 = $("#box2");
 let calButton = $("#calBtn");
-let pdfButton = $(".pdfButton");
+    // let pdfButton = $(".pdfButton");
 
-let currencyListString;
-// let currencyStringJoin;
-
-// Storing our URL for a 'Historical' currency request
-// historicalQueryURL = "http://www.api.currencylayer.com/historical?access_key=4e8b520592221b3422775e55f28b2a2a;"
-
-// Following request not supported by my api subscription
-            // // Storing our URL for a 'Convert' currency request
-            // convertQueryURL = "http://www.api.currencylayer.com/convert?access_key=4e8b520592221b3422775e55f28b2a2a&from=" + "" "&to=" + "";
-
+let searchHistory = [];    
+let searchHistoryCurrency = [];
+let searchHistoryValue1 = [];
 
 //-----BUILDING FUNCTIONS-----
+// Display Current Date at top of app
+function displayDate() {
+console.log(currentDate);
+dateToday.text(currentDate);
+};
+
 // Setting variable for all currencies that can be requested
 // This list will populate the dropdown menus
 function grabCurrencyList() {
@@ -54,74 +41,57 @@ function grabCurrencyList() {
     })
     // After the data from the AJAX request comes back
     .then(function(response) {
-        console.log("response.list", response);
+        console.log("response", response);
         // Saving the Currency List Data
         currencyList = response.currencies;            
-        
-        currencyListArray = JSON.stringify(response.currencies);
-        currencyListString = currencyListArray;
-        console.log("response.currencies", currencyList);
-        // console.log("# of Currencies supported on next line");
-        // console.log(currencyListArray.length);
-        console.log("List of Currency Codes", Object.keys(currencyList));
+        console.log("currencyList", currencyList);
+
+        // Grabbing currency keys
         currencyKeys = Object.keys(currencyList);
-    
+        console.log("currency keys", currencyKeys);
+
+        currencyValues = Object.values(currencyList);
+        console.log("currency values", currencyValues);
+
+        let currencyOptions = _.zip(currencyValues, currencyKeys);
+        console.log("currencyOptions", currencyOptions);
+
         // API pull for live currencies to be added to dropdown
         console.log("Popluating Dropdown lists...");
         // For each currency in the currency list array,
-        
-        $.each(currencyList, function(i, currency) {
-            box1.append("<option>" + currency + "" + "</option>");
-        });
-
-        $.each(currencyList, function(i, currency) {
-            box2.append("<option>" + currency + "" + "</option>");
-        });
-        console.log("Dropdown lists have been populated");
-
-        // Creating variable that contains all available currencies as a string
-                // currencyStringJoin = currencyListString.join(",");
-                // console.log(currencyStringJoin);
-        
-        // Commenting out below for loop for now; replaced by above .each functions
-                // for (i = 0; i <= currencyListArray.length; i++) {
-                //     // Creating variable for options in dropDown menus
-                //     let currencyOptions = $("<option>");
-                //     $(currencyOptions).addClass("currencies");
-                //         // $(currencyOptions).attr("id", currencyListArray.i)
-                    
-                //     // Displaying currencies in the options
-                //     //  Currently trying to figure out how to target the data for each currency
-                //     currentCurrency = currencyListArray;
-                //     console.log(currentCurrency);
-                //     $(currencyOptions).text(currentCurrency);
-
-                //     // Append currencies to dropDown menus
-                //     // Currently, box 1 is blank and 2 is populated, but if i comment out box 2, box 1 works
-                //     $(box1).append(currencyOptions);
-                //     $(box2).append(currencyOptions);
-
-                // };
+        $.each(currencyOptions, function(i, currency) {
+            box1.append("<option>" + currency + "</option>");
+            box2.append("<option>" + currency + "</option>");
+        });    
+    console.log("Dropdown lists have been populated");
+    console.log("-----------------------------------");
+    // End of .then() function
     });
+// End of grabCurrencyList function
 };
-
-
-
-// --Commenting out below function for now--
-        // button.addEventListener("click", function(name){
-        //     fetch("http://data.fixer.io/api/latest?access_key=046374ead830a8a183f4c823ed1d0bc2")
-        // for(i = 0; i<currency1.currency2; i++);
-        // });
-
 
 // Build onClick calculate function for calButton
 // When user clicks calButton, 
-
-
 $(calButton).on("click", function (event) {
+    event.preventDefault();
+    console.log("Beginning 'Calculate Button' on-Click function");
+
+    // Creating variables for reading from and writing to currency ammount fields
+    let currency1Ammount = $("#currency1Ammount").val();
+    console.log("User currency 1 Value : ", currency1Ammount);
+    let currency2Ammount = $("#currency2Ammount").val();
+
+    let box1Currency = $(box1).val();
+    console.log("User currency 1 : ", box1Currency);
+    let box1CurrencyKey = box1Currency.substring(box1Currency.length - 3, box1Currency.length);
+    console.log("User currency 1 KEY : ", box1CurrencyKey);
+    let box2Currency = $(box2).val();
+    console.log("User currency 2 : ", box2Currency);
+    let box2CurrencyKey = box2Currency.substring(box2Currency.length - 3, box2Currency.length);
+    console.log("User currency 2 KEY : ", box2CurrencyKey);
 
     // Storing our URL for a 'Live' currency request
-    liveQueryURL = "http://api.currencylayer.com/live?access_key=4e8b520592221b3422775e55f28b2a2a&currencies=" + currencyKeys + "&format=1";
+    liveQueryURL = "http://api.currencylayer.com/live?access_key=4e8b520592221b3422775e55f28b2a2a&currencies=" + box1Currency + box2Currency + "&format=1";
 
     // Perfoming an AJAX GET request to our 'Live' queryURL
     $.ajax({
@@ -131,41 +101,54 @@ $(calButton).on("click", function (event) {
     // After the data from the AJAX request comes back
     .then(function(response) {
         console.log("live currency response", response);
-        console.log("response.quotes", response.quotes);
+        // Quote is set to the key of 'currency2' with a value of 'how many of currency2 is equal to 1 unit of currency1'
+        quote = response.quotes
+        console.log("quote", quote);
+        // Variable for currency2's currency Key
+        quoteKey = Object.keys(quote);
+        console.log("quoteKey", quoteKey);
+        // quoteValue is set to how many of currency2 is equal to 1 unit of currency1
+        quoteValue = Object.values(quote);
+        console.log("quoteValue", quoteValue);
 
-        // Saving the Live Currency Data
-        let liveResponse = response;
-        // Displaying the currency2 value
-        // currency2Ammount.text("");
+        // Variable for unix code format timestamp
+        timeStamp = response.timestamp
+        console.log("timeStamp : ", timeStamp);
+        // Full updated date
+        dateUpdated = new Date(timeStamp * 1000);
+        console.log("date updated : ", dateUpdated);
+        // Stringified full updated date
+        dateString = JSON.stringify(dateUpdated);
+        // Extracted updated date
+        lastUpdated = dateString.substring(0, 20);
+        console.log("last updated on ", lastUpdated);
+        // Display lastUpdated in field below currency1Ammount
+        $(updated1).text(lastUpdated);
+
+        // Multiply quoteValue by user provided currency1Ammount
+        convertedAmmount = currency1Ammount * quoteValue;
+        // Display convertedAmmount in currency2Ammount
+        $(currency2Ammount).html(convertedAmmount);
+        console.log("Returned currency 2 Value : ", convertedAmmount);
+
+        // Beginning with quoteValue, move decimal point over two places to the left to find the exchangeRate
+        exchangeRate = quoteValue * .01;
+        console.log("Exchange Rate : ", exchangeRate);
+        // Display exchangeRate in field below currency2Ammount
+        $(updated2).text(exchangeRate);
+
+        // searchHistoryCurrency.push();
+
     });
 
+// End of calButton click function
 });
 
 
-// Build onClick generate PDF function for 'a'
-// When user clicks 'a', a PDF is generated including 'a screenshot of the app in its current state'.
-// Then a link to a PDF is generated and then opened in the new window.
-
-// --Commenting out below function for now--
-        // $(pdfButton).on("click", function (event) {
-        //     if (typeof doc.print === 'undefined') {    
-        //         setTimeout(function(){printDocument(documentId);}, 1000);
-        //     } else {
-        //         doc.print();
-        //     }
-        // <embed
-        //     type="application/pdf"
-        //     src="path_to_pdf_document.pdf"
-        //     id="pdfDocument"
-        //     width="100%"
-        //     height="100%" />
-        // });
-
-
-
 //-----CALLING FUNCTIONS-----
-// This function will run when the HTML has finished loading
+// These functions will run when the HTML has finished loading
+displayDate();
 grabCurrencyList();
 
-
+// End of document(ready) function
 });
