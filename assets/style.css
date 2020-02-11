@@ -52,13 +52,13 @@
 
 
 .hero
-  .title a
+  .title a {
     text-decoration: underline;
-  
-h1
+}
+h1 {
   font-size: 2em;
-
-$grey-lighter: hsl(0, 0%, 86%) !default
+}
+grey-lighter: hsl(0, 0%, 86%) !default
 $table-cell-border: 1px solid $grey-lighter !default
 $table-cell-border-width: 0 0 1px !default
 
@@ -154,6 +154,7 @@ $table-cell-border-width: 0 0 1px !default
     padding: 30px;
 }
 
+
 #color1 {
   background-color: #465A4F;
 }
@@ -196,9 +197,6 @@ $table-cell-border-width: 0 0 1px !default
 #calBtn, #pdfBtn{
   background-color: #BB9E7C;
 }
-
-
-
 
 
 #fontColor3{
