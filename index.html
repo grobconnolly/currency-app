@@ -8,22 +8,21 @@
     <link rel="stylesheet" href='./assets/style.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css">
     <link href="https://fonts.googleapis.com/css?family=Righteous|Titillium+Web&display=swap" rel="stylesheet">
-
-    <title> CurrencyExchangePro V2 </title>
+    <div id="currencyPDF">
+        <title> CurrencyExchangePro V2 </title>
 </head>
 
 <body>
 
-    <nav class="navbar is-focused" id="color2" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-focused is-fluid" id="color2" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="#">
                 <h1 id="fontColor1" class='titleText'>CurrencyExchangePro</h1>
             </a>
-<!-- hehe -->
+            <!-- hehe -->
 
 
-            <a role="button" class="" aria-label="menu" aria-expanded=""
-                data-target="navbarBasicExample">
+            <a role="button" class="" aria-label="menu" aria-expanded="" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -46,10 +45,12 @@
 
     <!-- Body-->
 
-    <!-- Image Top -->
-    <div id="color1" class="columns mainArea mainbox">
-        <!-- Outer Colomn-->
-        <div class="column is-1">
+    <!-- Top Section -->
+    <div id="color1" class="columns mainArea mainbox is-fluid">
+
+
+        <!-- Outer-->
+        <div class="column is-1.5">
         </div>
 
         <!-- Country 1-->
@@ -83,7 +84,7 @@
 
         </div>
         <!-- Blank Area Seperating-->
-        <div class="column is-2 has-background-blank blankArea"></div>
+        <div class="column is-1 has-background-blank"></div>
 
 
         <!-- Country 2 -->
@@ -109,8 +110,8 @@
 
 
             <div class="column has-background-light top-auto currency2data">
-                <p class="has-text-left" id="updated2">Last Updated:</p>
-                <p id="country2price"></p>
+                <p class="has-text-left" id="updated2">Exchange Rate:</p>
+                <p id="exchange"></p>
 
 
             </div>
@@ -123,49 +124,62 @@
         </div>
 
     </div>
-    
-    
+
+
 
     <!-- section 2 -->
-    <div class="columns">
-        <!-- Outer Colomn-->
-        <div class="column is-1" id="color1">
+    
+    <div id="smallHeight" class="color1 columns mainArea mainbox is-fluid">
+
+
+            <!-- Outer-->
+            <div class="column is-1.5">
+            </div>
+    
+            <!-- Calculate-->
+    
+            <div class="column is-4 calButtonDiv" id="color1">
+                    <button id="calBtn" class="button calButton color4">Calculate</button>
+                </div>
+            
+
+            <!-- Blank Area Seperating-->
+            <div id="zeroPadding" class="column is-1 has-background-blank"></div>
+    
+    
+            <!-- PDF -->
+            <div class="column is-4 zeroPadding" id="color1">
+                    <button id="pdfBtn" class="button pdfButton color4"><a href="javascript:demoFromHTML()">Generate PDF</a>
+                    </button>
+                </div>
+    
+            <!-- Outer Colomn-->
+            <div class="column is-1">
+    
+            </div>
+    
         </div>
 
-        <!-- Country 1-->
-
-        <div class="column is-6 calButtonDiv" id="color1">
-            <button id="calBtn" class="button calButton color4">Calculate</button>
-
-        </div>
-        <div class="column is-6" id="color1">
-            <button id="pdfBtn" class="button pdfButton color4">Generate PDF</button>
-        </div>
 
 
-        <!-- Blank Area Seperating-->
 
 
-    </div>
-
-
-    </div>
 
     <div id="color2" class="columns is-mobile last5 fiveArea">
         <div id="color1withBorder"
-            class="column is-half is-offset-one-quarter	 has-text-centered fiveArea is-focused fontColor3">Last 5
+            class="column is-half is-offset-one-quarter	 has-text-centered fiveArea is-focused fontColor3">Previous
             Currency
             Checks</div>
     </div>
-    <div class="container-fluid fiveArea">
-        <div id="color2" class="columns is-centered fiveArea">
-            <div id="color2" class="column is-narrow fiveArea">
-                <table class="table fiveArea">
+    <div class="container-fluid is-centered">
+        <div id="tableCenter" class="columns is-centered color2">
+            <div id="tableCenter" class="column is-narrow color2">
+                <table id="tableCenter" class="table">
                     <tr>
                         <th>Currency 1 </th>
-                        <th>Currency 1 rate</th>
+                        <th>Currency 1 Value</th>
                         <th>Currency 2</th>
-                        <th>Currency 2 rate</th>
+                        <th>Currency 2 Value</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -212,9 +226,20 @@
     </div>
     </div>
 
+    <!-- js library - jquery -->
+=======
+    </div>
+
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- js library - moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- js library - underscore.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <!-- external logic sheet -->
     <script src="./assets/logic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
 </body>
 
 </html>

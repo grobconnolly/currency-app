@@ -52,13 +52,13 @@
 
 
 .hero
-  .title a
+  .title a {
     text-decoration: underline;
-  
-h1
+}
+h1 {
   font-size: 2em;
-
-$grey-lighter: hsl(0, 0%, 86%) !default
+}
+grey-lighter: hsl(0, 0%, 86%) !default
 $table-cell-border: 1px solid $grey-lighter !default
 $table-cell-border-width: 0 0 1px !default
 
@@ -143,10 +143,6 @@ $table-cell-border-width: 0 0 1px !default
             border-width: 1px
 }
 
-.calButton, .pdfButton{
-    width: 150px;
-    
-}
 
 .last5 {
     padding: 30px;
@@ -158,7 +154,11 @@ $table-cell-border-width: 0 0 1px !default
     padding: 30px;
 }
 
+
 #color1 {
+  background-color: #465A4F;
+}
+.color1 {
   background-color: #465A4F;
 }
 
@@ -170,6 +170,9 @@ $table-cell-border-width: 0 0 1px !default
 }
 
 #color2{
+  background-color: #E0D4CB;
+}
+.color2{
   background-color: #E0D4CB;
 }
 
@@ -195,13 +198,6 @@ $table-cell-border-width: 0 0 1px !default
   background-color: #BB9E7C;
 }
 
-#calBtn{
-  left: 2%;
-}
-
-#pdfBtn{
-  right: 3%;
-}
 
 #fontColor3{
   color: white;
@@ -218,14 +214,50 @@ $table-cell-border-width: 0 0 1px !default
   font-size: 20px;
 }
 
-@media screen and (max-width: 768px){
 #calBtn{
-bottom: 40px;
-left: 65%;
+width: 50%;
+right: 13px;
+bottom: 50px;
 }
 
 #pdfBtn{
-  bottom: 100px;
-  left: 10%;
+width: 50%;
+right: 13px;
+bottom: 50px;
 }
+
+@media screen and (max-width: 768px){
+   #calBtn{
+    width: 44%;
+    right: 2px;
+    bottom: 92px;
+    }
+    
+    #pdfBtn{
+    width: 44%;
+    left: 53%;
+    bottom: 152px;
+    }
+   #zeroPadding {
+    padding-top:0;
+    padding-bottom:0;
+   }
+    #smallHeight{
+      height: 0px;
 }
+.fiveArea {
+  align-self: auto;
+}
+
+#tableCenter{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
+}
+#color1withBorder{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  }
