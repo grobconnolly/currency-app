@@ -12,6 +12,15 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 } 
 
+#flag1 {
+  height: 30px;
+  margin-top: 0px;
+ }
+
+ #flag2 {
+  height: 30px;
+  margin-top: 0px;
+ }
 
 .headerText{
     font-family: 'Righteous', cursive;
@@ -58,9 +67,10 @@
 h1 {
   font-size: 2em;
 }
-grey-lighter: hsl(0, 0%, 86%) !default
+
+/* grey-lighter: hsl(0, 0%, 86%) !default
 $table-cell-border: 1px solid $grey-lighter !default
-$table-cell-border-width: 0 0 1px !default
+$table-cell-border-width: 0 0 1px !default */
 
 @media screen and (max-width: 800px){
 
@@ -181,6 +191,7 @@ $table-cell-border-width: 0 0 1px !default
   border: white;
   border-style: solid;
   border-width: 2px;
+  height: 300px;
 }
 
 #color3{
@@ -261,3 +272,5 @@ bottom: 50px;
 }
 
   }
+
+ 
