@@ -160,6 +160,7 @@ $(calButton).on("click", function (event) {
         // let searchHistory = _.zip(searchHistoryCurrencies, searchHistoryValues, searchHistoryMeta);
 
         // OPTION 2 for history; both work, just different output
+        console.log("Collecting data for Search History...")
         let searchHistory = {
             box1Currency,
             box2Currency,
@@ -168,16 +169,18 @@ $(calButton).on("click", function (event) {
             lastUpdated,
             exchangeRate
         }
-        console.log(searchHistory);
+        console.log("Search History", searchHistory);
 
         // Pushing searches to local storage
         searchNum ++ ;
         let searchHistoryArray = [];
         searchHistoryArray.push(searchHistory);
         localStorage.setItem("search" + [searchNum],JSON.stringify(searchHistoryArray));
+        console.log("Pushing Search History to local storage...")
     
         // Pulling searches from local storage
-        // localStorage.getItem("search" + [searchNum],);
+        let historyPull = localStorage.getItem("search" + [searchNum],);
+        console.log("Pulling Search History from local storage...")
 
 
 
