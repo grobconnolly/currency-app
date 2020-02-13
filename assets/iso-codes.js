@@ -22,7 +22,7 @@ let countryCodes = {
     BOB: "BO",
     BRL: "BR",
     BSD: "BS",
-    BTC: "JP", //----find  bitcoin symbol, add if statement
+    BTC: "BTC", //----use bitcoin symbol, and an if statement
     BTN: "BT",
     BWP: "BW",
     BYN: "BY",
@@ -32,7 +32,6 @@ let countryCodes = {
     CDF: "CD",
     CHF: "CH",
     CLF: "CL",
-
     CLP: "CL",
     CNY: "CN",
     COP: "CO",
@@ -48,7 +47,7 @@ let countryCodes = {
     EGP: "EG",
     ERN: "ER",
     ETB: "ET",
-    EUR: "EU", //GB
+    EUR: "EU", 
     FJD: "FJ",
     FKP: "FK",
     GBP: "GB",
