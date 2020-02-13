@@ -1,8 +1,8 @@
-//Current date using moment.js
-// moment().format("MMM Do YY");
-
 // Wait until Dom has completed loading
 $(document).ready(function() {
+
+//Current date using moment.js
+// moment().format("MMM Do YY");
 
 // Check that script is successfully linked to index.html
 console.log("logic.js is successfully linked");
@@ -17,12 +17,14 @@ let calButton = $("#calBtn");
 let searchNum = 0;
 
 //-----BUILDING FUNCTIONS-----
+// FUNCTION DISPLAY DATE
 // Display Current Date at top of app
 function displayDate() {
 console.log(currentDate);
 dateToday.text(currentDate);
 };
 
+// FUNCTION GRABCURRENCYLIST
 // Setting variable for all currencies that can be requested
 // This list will populate the dropdown menus
 function grabCurrencyList() {
@@ -50,11 +52,12 @@ function grabCurrencyList() {
         console.log("currencyOptions", currencyOptions);
 
         // API pull for live currencies to be added to dropdown
-        console.log("Popluating Dropdown lists...");
+        console.log("Populating Dropdown lists...");
         // For each currency in the currency list array, create an option containing 'currencyOptions'
         $.each(currencyOptions, function(i, currency) {
             box1.append("<option>" + currency + "</option>");
-            box2.append("<option>" + currency + "</option>");
+            // box1.option.addClass(currencyKeys[i]);
+            box2.append("<option>" + currency + "</option>")
         });    
     console.log("Dropdown lists have been populated");
     console.log("-----------------------------------");
@@ -63,7 +66,7 @@ function grabCurrencyList() {
 // End of grabCurrencyList function
 };
 
-// Build onClick calculate function for calButton
+//  CALCULATE FUNCTION for calButton
 // When user clicks calButton, 
 $(calButton).on("click", function (event) {
     event.preventDefault();
@@ -73,11 +76,11 @@ $(calButton).on("click", function (event) {
     let currency1Ammount = $("#currency1Ammount").val();
     console.log("User currency 1 Value : ", currency1Ammount);
     let currency2Ammount = $("#currency2Ammount");
-
     // Creating variables for meta data
     let updated1 = $(".updated1");
     let updated2 = $("#updated2");
 
+    // Creating variables for currencies and currency keys
     let box1Currency = $(box1).val();
     console.log("User currency 1 : ", box1Currency);
     // 'box1CurrencyKey' is currently unused other than console.log for meta
@@ -137,29 +140,29 @@ $(calButton).on("click", function (event) {
 
         // Creating Search History nested arrays to push to and pull from
         // Push all search information into arrays, and nest those arrays into an object       
+            // OPTION 1 for history; both work, just different output
+            // let searchHistoryCurrency1 = [];
+            // searchHistoryCurrency1.push(box1Currency);
+            // let searchHistoryCurrency2 = [];
+            // searchHistoryCurrency2.push(box2Currency);
+            // let searchHistoryCurrencies = _.zip(searchHistoryCurrency1, searchHistoryCurrency2); 
 
-        // OPTION 1 for history; both work, just different output
-        // let searchHistoryCurrency1 = [];
-        // searchHistoryCurrency1.push(box1Currency);
-        // let searchHistoryCurrency2 = [];
-        // searchHistoryCurrency2.push(box2Currency);
-        // let searchHistoryCurrencies = _.zip(searchHistoryCurrency1, searchHistoryCurrency2); 
+            // let searchHistoryValue1 = [];
+            // searchHistoryValue1.push(currency1Ammount);
+            // let searchHistoryValue2 = [];
+            // searchHistoryValue2.push(convertedAmmount);
+            // let searchHistoryValues = _.zip(searchHistoryValue1, searchHistoryValue2);
+            
+            // let searchHistoryDate = [];
+            // searchHistoryDate.push(lastUpdated);
+            // let searchHistoryRate = [];
+            // searchHistoryRate.push(exchangeRate);
+            // let searchHistoryMeta = _.zip(searchHistoryDate, searchHistoryRate);
 
-        // let searchHistoryValue1 = [];
-        // searchHistoryValue1.push(currency1Ammount);
-        // let searchHistoryValue2 = [];
-        // searchHistoryValue2.push(convertedAmmount);
-        // let searchHistoryValues = _.zip(searchHistoryValue1, searchHistoryValue2);
-        
-        // let searchHistoryDate = [];
-        // searchHistoryDate.push(lastUpdated);
-        // let searchHistoryRate = [];
-        // searchHistoryRate.push(exchangeRate);
-        // let searchHistoryMeta = _.zip(searchHistoryDate, searchHistoryRate);
-
-        // let searchHistory = _.zip(searchHistoryCurrencies, searchHistoryValues, searchHistoryMeta);
+            // let searchHistory = _.zip(searchHistoryCurrencies, searchHistoryValues, searchHistoryMeta);
 
         // OPTION 2 for history; both work, just different output
+        console.log("Collecting data for Search History...")
         let searchHistory = {
             box1Currency,
             box2Currency,
@@ -168,19 +171,59 @@ $(calButton).on("click", function (event) {
             lastUpdated,
             exchangeRate
         }
-        console.log(searchHistory);
-
+        console.log("Search History", searchHistory);
+        
         // Pushing searches to local storage
         searchNum ++ ;
         let searchHistoryArray = [];
         searchHistoryArray.push(searchHistory);
         localStorage.setItem("search" + [searchNum],JSON.stringify(searchHistoryArray));
-    
+        console.log("Pushing Search History to local storage...")
+        console.log("searchNum", searchNum)
+        
         // Pulling searches from local storage
-        // localStorage.getItem("search" + [searchNum],);
+        let indexNum = searchNum;
+        
+            let historyPull = localStorage.getItem("search" + [searchNum]);
+            let historyParse = JSON.parse(historyPull);
+            console.log("Pulling Search History from local storage...")
+            console.log("historyPull", historyPull)
+            console.log("historyParse", historyParse)
+            
+            // Creating variables for recent searches table data
+                // let search1 = $("#search1");
+                // let key1_1History = $("#key1-1History");
+                // let value1_1History = $("#value1-1History");
+                // let key1_2History = $("#key1-2History");
+                // let value1_2History = $("#value1-2History");
+                // let exchange1_1Rate = $("#exchange1-1Rate");
+                // let date1 = $("#date1");
 
+            console.log("indexNum", indexNum);
 
+            let searched = $("#search" + [indexNum]).text();
+            $(searched).text(toString(indexNum));
+            console.log("searched", searched);
+            let key_1History = $("#key" + [indexNum] + "-1History");
+            console.log("key_1History", key_1History);
+            let value_1History = $("#value" + [indexNum] + "-1History");
+            console.log("value_1History", value_1History);
+            let key_2History = $("#key" + [indexNum] + "-2History");
+            console.log("key_2History", key_2History);
+            let value_2History = $("#value" + [indexNum] + "-2History");
+            console.log("value_2History", value_2History);
+            let exchange_1Rate = $("#exchange" + [indexNum] + "Rate");
+            console.log("exchange_1Rate", exchange_1Rate);
+            let date = $("#date" + [indexNum]);
+            console.log("date", date);
 
+            // let _row = $(".table").parents("tr");
+            // let cols = _row.children("td");
+            // $("#search" + [indexNum]).val($(cols[1]).text(indexNum));
+            // $("#key" + [indexNum] + "-1History").val($(cols[2]).text());
+            // $("#value" + [indexNum] + "-1History").val($(cols[3]).text());
+
+        
         console.log("Ending 'Calculate Button' on-Click function");
         console.log("-----------------------------------");
     });
@@ -188,11 +231,49 @@ $(calButton).on("click", function (event) {
 // End of calButton click function
 });
 
+// DISPLAY FLAGS FUNCTION
+
+function displayFlags () {
+    
+    setTimeout(() => {
+        let flag1 = $("#flag1");
+        let country1_A3 = $(box1).val();
+        console.log(country1_A3);
+        let country1_A2 = "";
+        console.log("country1_A2");
+
+        // flag1QueryURL = "https://www.countryflags.io/" + country1_A2 + "/flat/64.png";
+        // $.ajax({
+        //     url: flag1QueryURL,
+        //     method: "GET"
+        //   }).then(function(response) {
+        
+        //   });
+
+        let flag2 = $("#flag2");  
+        let country2_A3 = $(box2).val();
+        console.log(country2_A3);
+        let country2_A2 = "";
+        console.log("country2_A2");
+        
+        // flag2QueryURL = "https://www.countryflags.io/" + country2_A2 + "/flat/64.png";
+        // $.ajax({
+        //     url: flag2QueryURL,
+        //     method: "GET"
+        //   }).then(function(response) {
+        
+        //   });
+        }, 2000);
+
+    
+}
+
 
 //-----CALLING FUNCTIONS-----
 // These functions will run when the HTML has finished loading
 displayDate();
 grabCurrencyList();
+displayFlags ();
 
 
 // End of document(ready) function
@@ -200,9 +281,12 @@ grabCurrencyList();
 
 
 
+// Start of Generate PDF function
+// This function will run when user clicks the pdf button
 // generate pdf ref https://stackoverflow.com/questions/16858954/how-to-properly-use-jspdf-library
 
 function demoFromHTML() {
+    console.log("Beginning pdf on-Click function");
     var pdf = new jsPDF('p', 'pt', 'letter');
     // source can be HTML-formatted string, or a reference
     // to an actual DOM element from which the text will be scraped.
@@ -241,5 +325,7 @@ function demoFromHTML() {
             pdf.save('currency.pdf');
         }, margins
     );
+    console.log("Ending pdf on-Click function");
+    console.log("-----------------------------------");
 }
 
