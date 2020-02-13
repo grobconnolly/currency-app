@@ -50,6 +50,263 @@ function grabCurrencyList() {
         console.log("currencyOptions", currencyOptions);
 
         // API pull for live currencies to be added to dropdown
+
+        $.ajax({
+            url: currencyListQueryURL,
+            method: "GET"
+        })
+        // After the data from the AJAX request comes back
+        .then(function(response) {
+            console.log("response", response);
+            // Saving the Currency List Data
+            currencyList = response.currencies;            
+            console.log("currencyList", currencyList);
+
+            // Grabbing currency keys
+            currencyKeys = Object.keys(currencyList);
+            console.log("currency keys", currencyKeys);
+            // Grabbing currency values
+            currencyValues = Object.values(currencyList);
+            console.log("currency values", currencyValues);
+            // Combining currency keys and values
+            let currencyOptions = _.zip(currencyValues, currencyKeys);
+            console.log("currencyOptions", currencyOptions);
+            
+            // Clear "pick a currency..." from dropdown lists
+            $(".boxes option").remove();
+            
+            console.log("Populating Dropdown lists...");
+            // For each currency in the currency list array, create an option containing 'currencyOptions'
+            $.each(currencyOptions, function(i, currency) {
+                box1.append("<option>" + currency + "</option>");
+                // box1.option.addClass(currencyKeys[i]);
+                box2.append("<option>" + currency + "</option>")
+            });    
+        console.log("Dropdown lists have been populated");
+        console.log("-----------------------------------");
+        // End of .then() function
+        });
+    // End of grabCurrencyList function
+    };
+
+    //  CALCULATE FUNCTION for calButton
+    // When user clicks calButton, 
+    $(calButton).on("click", function (event) {
+        event.preventDefault();
+        console.log("Beginning 'Calculate Button' on-Click function");
+
+        // Creating variables for reading from and writing to currency ammount fields
+        let currency1Ammount = $("#currency1Ammount").val();
+        console.log("User currency 1 Value : ", currency1Ammount);
+        let currency2Ammount = $("#currency2Ammount");
+        // Creating variables for meta data
+        let updated1 = $(".updated1");
+        let updated2 = $("#updated2");
+
+        // Creating variables for currencies and currency keys
+        let box1Currency = $(box1).val();
+        console.log("User currency 1 : ", box1Currency);
+        // 'box1CurrencyKey' is currently unused other than console.log for meta
+        let box1CurrencyKey = box1Currency.substring(box1Currency.length - 3, box1Currency.length);
+        console.log("User currency 1 KEY : ", box1CurrencyKey);
+        let box2Currency = $(box2).val();
+        console.log("User currency 2 : ", box2Currency);
+        // 'box2CurrencyKey' is currently unused other than console.log for meta
+        let box2CurrencyKey = box2Currency.substring(box2Currency.length - 3, box2Currency.length);
+        console.log("User currency 2 KEY : ", box2CurrencyKey); 
+
+        // Storing our URL for a 'Live' currency request
+        apiKey = "";
+        liveQueryURL = "http://api.currencylayer.com/live?access_key=" + apiKey + "&source=" + box1CurrencyKey + "&currencies=" + box2CurrencyKey + "&format=1";
+        // Perfoming an AJAX GET request to our 'Live' queryURL
+        $.ajax({
+            url: liveQueryURL,
+            method: "GET"
+        })
+        // After the data from the AJAX request comes back
+        .then(function(response) {
+            console.log("live currency response", response);
+            // Quote is set to the key of 'currency2' with a value of 'how many of currency2 is equal to 1 unit of currency1'
+            quote = response.quotes
+            console.log("quote", quote);
+            // Variable for currency2's currency Key
+            quoteKey = Object.keys(quote);
+            console.log("quoteKey", quoteKey);
+            // quoteValue is set to how many of currency2 is equal to 1 unit of currency1
+            quoteValue = Object.values(quote);
+            console.log("quoteValue", quoteValue);
+
+            // Variable for unix code format timestamp
+            timeStamp = response.timestamp
+            console.log("timeStamp : ", timeStamp);
+            // Full updated date
+            dateUpdated = new Date(timeStamp * 1000);
+            console.log("date updated : ", dateUpdated);
+            // Stringified full updated date
+            dateString = JSON.stringify(dateUpdated);
+            // Extracted updated date
+            lastUpdated = dateString.substring(0, 20);
+            console.log("last updated on ", lastUpdated);
+            // Display lastUpdated in field below currency1Ammount
+            // OPTION 1 - both work, different outputs
+            $(updated1).text(dateUpdated);
+            // OPTION 2 - both work, different outputs
+                // $(updated1).text(lastUpdated);
+
+            // Multiply quoteValue by user provided currency1Ammount
+            convertedAmmount = currency1Ammount * quoteValue;
+            // Display convertedAmmount in currency2Ammount
+            $(currency2Ammount).val(convertedAmmount.toFixed(3));
+            console.log("Returned currency 2 Value : ", convertedAmmount);
+            // console.log("Returned currency 2 Value Fixed : ", convertedAmmountFixed);
+
+            // Beginning with quoteValue, move decimal point over two places to the right to find the exchangeRate percentge
+            exchangeRate = (quoteValue * 100);
+            exchangeRateFixed = parseFloat(exchangeRate).toFixed( 2) + " %";
+            console.log("Exchange Rate : ", exchangeRate);
+            console.log("Exchange Rate Fixed: ", exchangeRateFixed);
+            // Display exchangeRate in field below currency2Ammount
+            $(updated2).text(exchangeRateFixed);
+
+            // Creating Search History nested arrays to push to and pull from
+            // Push all search information into arrays, and nest those arrays into an object       
+                // OPTION 1 for history; both work, just different output
+                // let searchHistoryCurrency1 = [];
+                // searchHistoryCurrency1.push(box1Currency);
+                // let searchHistoryCurrency2 = [];
+                // searchHistoryCurrency2.push(box2Currency);
+                // let searchHistoryCurrencies = _.zip(searchHistoryCurrency1, searchHistoryCurrency2); 
+
+                // let searchHistoryValue1 = [];
+                // searchHistoryValue1.push(currency1Ammount);
+                // let searchHistoryValue2 = [];
+                // searchHistoryValue2.push(convertedAmmount);
+                // let searchHistoryValues = _.zip(searchHistoryValue1, searchHistoryValue2);
+                
+                // let searchHistoryDate = [];
+                // searchHistoryDate.push(lastUpdated);
+                // let searchHistoryRate = [];
+                // searchHistoryRate.push(exchangeRate);
+                // let searchHistoryMeta = _.zip(searchHistoryDate, searchHistoryRate);
+
+                // let searchHistory = _.zip(searchHistoryCurrencies, searchHistoryValues, searchHistoryMeta);
+
+            // OPTION 2 for history; both work, just different output
+            console.log("Collecting data for Search History...")
+            let searchHistory = {
+                box1Currency,
+                box2Currency,
+                currency1Ammount,
+                convertedAmmount,
+                dateUpdated,
+                exchangeRate
+            }
+            console.log("Search History", searchHistory);
+            
+            // Pushing searches to local storage
+            searchNum ++ ;
+                // let searchHistoryArray = [];
+                // searchHistoryArray.push(searchHistory);
+            localStorage.setItem("search" + [searchNum],JSON.stringify(searchHistory));
+            console.log("Pushing Search History to local storage...")
+            console.log("searchNum", searchNum)
+            
+            // Pulling searches from local storage
+            let indexNum = searchNum;
+                console.log("Pulling Search History from local storage...");
+                let historyPull = localStorage.getItem("search" + [searchNum]);
+                console.log("historyPull", historyPull);
+                console.log("historyPull TYPE: ", typeof(historyPull));
+                let historyParse = JSON.parse(historyPull);
+                console.log("historyParse", historyParse);
+                console.log("historyParse TYPE: ", typeof(historyParse));
+                    // let historyStringy = JSON.stringify(historyPull);
+                    // console.log("historyStringy", historyStringy);
+                    // console.log("historyStringy TYPE: ", typeof(historyStringy));
+                    // let historyFix = JSON.parse(historyStringy); 
+                    // console.log("historyFix", historyFix);
+            
+                box1CurrencyHistory = historyParse.box1Currency;
+                console.log("box1CurrencyHistory", box1CurrencyHistory);
+                console.log(typeof(box1CurrencyHistory));
+
+                box2CurrencyHistory = historyParse.box2Currency;
+                console.log("box2CurrencyHistory", box2CurrencyHistory);
+                console.log(typeof(box2CurrencyHistory));
+
+                currency1AmmountPull = (historyParse.currency1Ammount);
+                // console.log("currency1AmmountPull", currency1AmmountPull);
+                // console.log(typeof(currency1AmmountPull));
+                currency1AmmountHistory = parseFloat(currency1AmmountPull).toFixed( 2);
+                console.log("currency1AmmountHistory", currency1AmmountHistory);
+                console.log(typeof(currency1AmmountHistory));
+
+                convertedAmmountHistory = historyParse.convertedAmmount;
+                console.log("convertedAmmountHistory", convertedAmmountHistory);
+                console.log(typeof(convertedAmmountHistory));
+
+                exchangeRatePull = historyParse.exchangeRate;
+                exchangeRateHistory = parseFloat(exchangeRatePull).toFixed( 2) + " %";
+                console.log("exchangeRateHistory", exchangeRateHistory);
+                console.log(typeof(exchangeRateHistory));
+                
+
+                dateUpdatedPull = (historyParse.dateUpdated)
+                dateUpdatedHistory = dateUpdatedPull.substring(0, 19);
+                console.log("dateUpdatedHistory", dateUpdatedHistory);
+                console.log(typeof(dateUpdatedHistory));
+
+                let tableBody = $(".table tbody");
+                let addHistoryRow = "<tr><td>Search # " 
+                + indexNum + "</td><td>"
+                + box1CurrencyHistory + "</td><td>" 
+                + currency1AmmountHistory + "</td><td>"
+                + box2CurrencyHistory + "</td><td>"
+                + convertedAmmountHistory.toFixed(3) + "</td><td>"
+                + exchangeRateHistory + "</td><td>"
+                + dateUpdatedHistory + "</td></tr>";
+
+                tableBody.append(addHistoryRow);
+                
+
+                // Creating variables for recent searches table data
+                    // let search1 = $("#search1");
+                    // let key1_1History = $("#key1-1History");
+                    // let value1_1History = $("#value1-1History");
+                    // let key1_2History = $("#key1-2History");
+                    // let value1_2History = $("#value1-2History");
+                    // let exchange1_1Rate = $("#exchange1-1Rate");
+                    // let date1 = $("#date1");
+                // Creating variables for recent searches table data
+                    // console.log("indexNum", indexNum);
+                    // let searched = $("#search" + [indexNum]).text();
+                    // console.log("searched pre", searched);
+                    // console.log("searched is type:", typeof(searched));
+                    // console.log("indexNum is type:", typeof(indexNum));
+                    // $(searched).val(indexNum);
+                    // console.log("searched post", searched);
+
+                    // let key_1History = $("#key" + [indexNum] + "-1History");
+                    // console.log("key_1History", key_1History);
+                    // let value_1History = $("#value" + [indexNum] + "-1History");
+                    // console.log("value_1History", value_1History);
+
+                    // let key_2History = $("#key" + [indexNum] + "-2History");
+                    // console.log("key_2History", key_2History);
+                    // let value_2History = $("#value" + [indexNum] + "-2History");
+                    // console.log("value_2History", value_2History);
+
+                    // let exchange_1Rate = $("#exchange" + [indexNum] + "Rate");
+                    // console.log("exchange_1Rate", exchange_1Rate);
+                    // let date = $("#date" + [indexNum]);
+                    // console.log("date", date);
+
+            
+            console.log("Ending 'Calculate Button' on-Click function");
+            console.log("-----------------------------------");
+        });
+    // End of calButton click function
+=======
         console.log("Popluating Dropdown lists...");
         // For each currency in the currency list array, create an option containing 'currencyOptions'
         $.each(currencyOptions, function(i, currency) {
@@ -59,6 +316,7 @@ function grabCurrencyList() {
     console.log("Dropdown lists have been populated");
     console.log("-----------------------------------");
     // End of .then() function
+
     });
 // End of grabCurrencyList function
 };
