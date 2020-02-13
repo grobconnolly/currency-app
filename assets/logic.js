@@ -94,7 +94,7 @@ $(document).ready(function() {
         console.log("User currency 2 : ", box2Currency);
         // 'box2CurrencyKey' is currently unused other than console.log for meta
         let box2CurrencyKey = box2Currency.substring(box2Currency.length - 3, box2Currency.length);
-        console.log("User currency 2 KEY : ", box2CurrencyKey);
+        console.log("User currency 2 KEY : ", box2CurrencyKey); 
 
         // Storing our URL for a 'Live' currency request
         apiKey = "";
