@@ -247,21 +247,21 @@ $(options).on("click", function (event) {
             // console.log("Chosen Country", event.target.value);
         let country1_A3 = country1.substr(country1.length - 3);
         console.log("country1_A3", country1_A3);
-        // let country1_A2 = countryCodes[country1_A3];
-        // console.log(country1_A2);
+        let country1_A2 = countryCodes[country1_A3];
+        console.log(country1_A2);
 
         let flag2 = $("#flag2");
         let country2 = $(box2).val();
         console.log("country2", country2);
         let country2_A3 = country2.substr(country2.length - 3);
         console.log("country2_A3", country2_A3);
-        // let country2_A2 = countryCodes[country2_A3];
-        // console.log("country2_A2");
+        let country2_A2 = countryCodes[country2_A3];
+        console.log("country2_A2");
 
-        let flag1QueryURL = "http://www.countryflags.io/" + "be" + "/flat/64.png";
+        let flag1QueryURL = "http://www.countryflags.io/" + country1_A2 + "/flat/64.png";
         $(flag1).attr("src",flag1QueryURL);
         
-        let flag2QueryURL = "https://www.countryflags.io/" + "be" + "/flat/64.png";
+        let flag2QueryURL = "https://www.countryflags.io/" + country2_A2 + "/flat/64.png";
         $(flag2).attr("src",flag2QueryURL);
         console.log("Setting chosen country flags")
         console.log("-----------------------------------");
