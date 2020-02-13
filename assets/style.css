@@ -194,12 +194,14 @@ bottom: 50px;
 #tableCenter{
   margin-left: auto;
   margin-right: auto;
-  font-size: 14px;
+  font-size: 10px;
 }
 #color1withBorder{
-  width: 100%;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
+  font-size: 13px;
+
 }
 
 
@@ -217,13 +219,21 @@ footer{
 
 #footer {
   background-color: #465A4F;
+  margin-left: auto;
+  margin-right: auto;
+  width: 104%;
 
 }
 
 .tableSpace {
-  padding-bottom: 1%;
+  margin-bottom: 1%;
   background-color: #465A4F;
+  
 }
 .fa-heart{
   color: red;
+}
+
+#btnLeft {
+  right: 400px;
 }
