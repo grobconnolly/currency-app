@@ -129,14 +129,17 @@ $(calButton).on("click", function (event) {
         // Multiply quoteValue by user provided currency1Ammount
         convertedAmmount = currency1Ammount * quoteValue;
         // Display convertedAmmount in currency2Ammount
-        $(currency2Ammount).val(convertedAmmount);
+        $(currency2Ammount).val(convertedAmmount.toFixed(3));
         console.log("Returned currency 2 Value : ", convertedAmmount);
+        // console.log("Returned currency 2 Value Fixed : ", convertedAmmountFixed);
 
         // Beginning with quoteValue, move decimal point over two places to the right to find the exchangeRate percentge
-        exchangeRate = (quoteValue * 100) + " %";
+        exchangeRate = (quoteValue * 100);
+        exchangeRateFixed = parseFloat(exchangeRate).toFixed( 2) + " %";
         console.log("Exchange Rate : ", exchangeRate);
+        console.log("Exchange Rate Fixed: ", exchangeRateFixed);
         // Display exchangeRate in field below currency2Ammount
-        $(updated2).text(exchangeRate);
+        $(updated2).text(exchangeRateFixed);
 
         // Creating Search History nested arrays to push to and pull from
         // Push all search information into arrays, and nest those arrays into an object       
@@ -227,64 +230,76 @@ $(calButton).on("click", function (event) {
         console.log("Ending 'Calculate Button' on-Click function");
         console.log("-----------------------------------");
     });
-
 // End of calButton click function
 });
 
 // DISPLAY FLAGS FUNCTION
-
-function displayFlags () {
+let options = $(".boxes");
+$(options).on("click", function (event) {
+    event.preventDefault();
+// function displayFlags () {
     
-    setTimeout(() => {
+    // setInterval(() => {
+        console.log("Checking chosen countries...")
         let flag1 = $("#flag1");
-        let country1_A3 = $(box1).val();
-        console.log(country1_A3);
-        let country1_A2 = "";
-        console.log("country1_A2");
+        let country1 = $(box1).val();
+        console.log("country1", country1);
+            // console.log("Chosen Country", event.target.value);
+        let country1_A3 = country1.substr(country1.length - 3);
+        console.log("country1_A3", country1_A3);
+        // let country1_A2 = countryCodes[country1_A3];
+        // console.log(country1_A2);
 
-        // flag1QueryURL = "https://www.countryflags.io/" + country1_A2 + "/flat/64.png";
-        // $.ajax({
-        //     url: flag1QueryURL,
-        //     method: "GET"
-        //   }).then(function(response) {
+        let flag2 = $("#flag2");
+        let country2 = $(box2).val();
+        console.log("country2", country2);
+        let country2_A3 = country2.substr(country2.length - 3);
+        console.log("country2_A3", country2_A3);
+        // let country2_A2 = countryCodes[country2_A3];
+        // console.log("country2_A2");
+
+        let flag1QueryURL = "http://www.countryflags.io/" + "be" + "/flat/64.png";
+        $(flag1).attr("src",flag1QueryURL);
         
-        //   });
+        let flag2QueryURL = "https://www.countryflags.io/" + "be" + "/flat/64.png";
+        $(flag2).attr("src",flag2QueryURL);
+        console.log("Setting chosen country flags")
+        console.log("-----------------------------------");
 
-        let flag2 = $("#flag2");  
-        let country2_A3 = $(box2).val();
-        console.log(country2_A3);
-        let country2_A2 = "";
-        console.log("country2_A2");
+    //         // AJAX CALL TO COUNTRYFLAGS API RAN INTO CORS ISSUE; UNABLE TO SOLVE
+    //         // $.ajax({
+    //         //     url: flag1QueryURL,
+    //         //     method: "GET",
+    //         //     dataType: "jsonp",
+    //         //     contentType: "application/javascript",
+    //         //   }).then(function(response) {
+    //         //     console.log(response);
+    //         //   });
+
         
-        // flag2QueryURL = "https://www.countryflags.io/" + country2_A2 + "/flat/64.png";
-        // $.ajax({
-        //     url: flag2QueryURL,
-        //     method: "GET"
-        //   }).then(function(response) {
-        
-        //   });
-        }, 2000);
 
-    
-}
-
+    //         // AJAX CALL TO COUNTRYFLAGS API RAN INTO CORS ISSUE; UNABLE TO SOLVE
+    //         // $.ajax({
+    //         //     url: flag2QueryURL,
+    //         //     method: "GET"
+    //         //   }).then(function(response) {
+    //         //   });
+//         }, 1000);
+// }
+});
 
 //-----CALLING FUNCTIONS-----
 // These functions will run when the HTML has finished loading
 displayDate();
-grabCurrencyList();
-displayFlags ();
-
+grabCurrencyList()
+// displayFlags();
 
 // End of document(ready) function
 });
 
-
-
 // Start of Generate PDF function
 // This function will run when user clicks the pdf button
 // generate pdf ref https://stackoverflow.com/questions/16858954/how-to-properly-use-jspdf-library
-
 function demoFromHTML() {
     console.log("Beginning pdf on-Click function");
     var pdf = new jsPDF('p', 'pt', 'letter');
