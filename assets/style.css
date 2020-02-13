@@ -9,63 +9,63 @@
 */ 
 
 *{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 } 
 
 #flag1 {
-  height: 30px;
-  margin-top: 0px;
- }
+height: 30px;
+margin-top: 0px;
+}
 
- #flag2 {
-  height: 30px;
-  margin-top: 0px;
- }
+#flag2 {
+height: 30px;
+margin-top: 0px;
+}
 
 .headerText{
-    font-family: 'Righteous', cursive;
-    font-size: 45px;
-    text-align: center;
+  font-family: 'Righteous', cursive;
+  font-size: 45px;
+  text-align: center;
 }
 
 
 .currency1, .currency2{
-    height: 250px;
+  height: 250px;
 }
 
 .currency1Data, .currency2Data{
-    height: 100px;
+  height: 100px;
 }
 
 .currencyLogo {
-    font-size: 30px;
-    padding-top: 20%;
+  font-size: 30px;
+  padding-top: 20%;
 }
 
 .box1, .box2 {
-    width: 15em;
- 
+  width: 15em;
+
 }
 
 .blankArea {
-    height: 50px;
+  height: 50px;
 }
 
 .currency2data {
-    top: auto;
+  top: auto;
 }
 
 .buttons pdfButton{
-    text-align: right;
+  text-align: right;
 }
 
 
 .hero
-  .title a {
-    text-decoration: underline;
+.title a {
+  text-decoration: underline;
 }
 h1 {
-  font-size: 2em;
+font-size: 2em;
 }
 
 /* grey-lighter: hsl(0, 0%, 86%) !default
@@ -74,86 +74,87 @@ $table-cell-border-width: 0 0 1px !default */
 
 @media screen and (max-width: 800px){
 
-  .is-responsive {
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    display: block;
-    position: relative;
-  }
-  
+.is-responsive {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  display: block;
+  position: relative;
+}
+
 }  
 
 
 .last5 {
-    padding: 30px;
+  padding: 30px;
 }
 
 
 
 .mainbox {
-    padding: 30px;
+  padding: 30px;
 }
 
 
 #color1 {
-  background-color: #465A4F;
+background-color: #465A4F;
 }
 .color1 {
-  background-color: #465A4F;
+background-color: #465A4F;
 }
 
 #color1withBorder {
-  background-color: #465A4F;
-  border: white;
-  border-style: solid;
-  border-width: 2px;
+background-color: #465A4F;
+border: white;
+border-style: solid;
+border-width: 2px;
+
 }
 
 #color2{
-  background-color: #E0D4CB;
+background-color: #E0D4CB;
 }
 .color2{
-  background-color: #E0D4CB;
+background-color: #E0D4CB;
 }
 
 #color2withBorder{
-  background-color: #E0D4CB;
-  border: white;
-  border-style: solid;
-  border-width: 2px;
-  height: 300px;
+background-color: #E0D4CB;
+border: white;
+border-style: solid;
+border-width: 2px;
+height: 300px;
 }
 
 #color3{
-  background-color: #BB9E7C;
-  border: white;
-  border-style: solid;
-  border-width: 20px;
+background-color: #BB9E7C;
+border: white;
+border-style: solid;
+border-width: 20px;
 }
 
 #color4{
-  background-color: #FD633F;
+background-color: #FD633F;
 }
 
 #calBtn, #pdfBtn{
-  background-color: #BB9E7C;
+background-color: #BB9E7C;
 }
 
 
 #fontColor3{
-  color: white;
-  font-size: 20px;
+color: white;
+font-size: 20px;
 }
 
 .fontColor3{
-  color: white;
-  font-size: 20px;
+color: white;
+font-size: 20px;
 }
 
 .fontColor1{
-  color: black;
-  font-size: 20px;
+color: black;
+font-size: 20px;
 }
 
 #calBtn{
@@ -162,78 +163,90 @@ right: 13px;
 bottom: 50px;
 }
 
-#pdfBtn{
-width: 50%;
-right: 13px;
-bottom: 50px;
-}
+
 
 @media screen and (max-width: 768px){
-   #calBtn{
-    width: 44%;
-    right: 2px;
-    bottom: 92px;
-    }
-    
-    #pdfBtn{
-    width: 44%;
-    left: 53%;
-    bottom: 152px;
-    }
-   #zeroPadding {
-    padding-top:0;
-    padding-bottom:0;
-   }
-    #smallHeight{
-      height: 0px;
+ #calBtn{
+  width: 44%;
+  right: 2px;
+  bottom: 92px;
+  }
+  
+  #pdfBtn{
+  width: 44%;
+  left: 53%;
+  bottom: 152px;
+  }
+ #zeroPadding {
+  padding-top:0;
+  padding-bottom:0;
+ }
+  #smallHeight{
+    height: 0px;
 }
 .fiveArea {
-  align-self: auto;
+align-self: auto;
 }
 
 #tableCenter{
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 10px;
+margin-left: auto;
+margin-right: auto;
+font-size: 10px;
 }
 #color1withBorder{
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 13px;
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+font-size: 13px;
 
 }
 
 
 
-  }
+}
 footer{
-  width: 100%;
-  padding: 15px;
-  background-color: #465A4F;
-  color: #FCF9F2;
-  font-size: 26;
-  text-align: center;
+width: 100%;
+padding: 15px;
+background-color: #465A4F;
+color: #FCF9F2;
+font-size: 26;
+text-align: center;
 }
 
 
 #footer {
-  background-color: #465A4F;
-  margin-left: auto;
-  margin-right: auto;
-  width: 104%;
+background-color: #465A4F;
+margin-left: auto;
+margin-right: auto;
+width: 104%;
 
 }
 
 .tableSpace {
-  margin-bottom: 1%;
-  background-color: #465A4F;
-  
+margin-bottom: 1%;
+background-color: #465A4F;
+
 }
 .fa-heart{
-  color: red;
+color: red;
 }
 
 #btnLeft {
-  right: 400px;
+right: 400px;
+}
+
+#phoneNumberBox {
+top: -130%;
+right: -4%; 
+}
+
+#pdfBtn{
+width: 25%;
+right: 13px;
+bottom: 117px;
+}
+
+#help {
+  color: white;
+
 }

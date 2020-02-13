@@ -31,7 +31,7 @@ $(document).ready(function() {
         console.log("Requesting Currency lists...");
         console.log("A long wait may indicate slow internet connection...");
         currencyKey = "";
-        let currencyListQueryURL = "http://api.currencylayer.com/list?access_key=" + 
+        let currencyListQueryURL = "http://api.currencylayer.com/list?access_key=" + currencyKey;
         // API pull for live currencies to be added to dropdown
         $.ajax({
             url: currencyListQueryURL,
@@ -184,6 +184,15 @@ $(document).ready(function() {
                 exchangeRate
             }
             console.log("Search History", searchHistory);
+
+            // Setting variables to become global for later use
+            window.box1CurrencyText = box1Currency;
+            window.currency1AmmountText = currency1Ammount;
+            window.box2CurrencyText = box2Currency;
+            window.convertedAmmountText = convertedAmmount;
+            window.dateUpdatedText = dateUpdated;
+            window.exchangeRateText = exchangeRate;
+            console.log("window.box1CurrencyText",window.box1CurrencyText);
             
             // Pushing searches to local storage
             searchNum ++ ;
@@ -373,52 +382,64 @@ $(document).ready(function() {
 
 // End of document(ready) function
 });
-// Start of Generate PDF function
-    // This function will run when user clicks the pdf button
-    // generate pdf ref https://stackoverflow.com/questions/16858954/how-to-properly-use-jspdf-library
-    function demoFromHTML() {
-        console.log("Beginning pdf on-Click function");
-        var pdf = new jsPDF('p', 'pt', 'letter');
-        // source can be HTML-formatted string, or a reference
-        // to an actual DOM element from which the text will be scraped.
-        source = $('#currencyPDF')[0];
 
-        // we support special element handlers. Register them with jQuery-style 
-        // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
-        // There is no support for any other type of selectors 
-        // (class, of compound) at this time.
-        specialElementHandlers = {
-            // element with id of "bypass" - jQuery style selector
-            '#bypassme': function (element, renderer) {
-                // true = "handled elsewhere, bypass text extraction"
-                return true
-            }
-        };
-        margins = {
-            top: 80,
-            bottom: 60,
-            left: 40,
-            width: 522
-        };
-        // all coords and widths are in jsPDF instance's declared units
-        // 'inches' in this case
-        pdf.fromHTML(
-            source, // HTML string or DOM elem ref.
-            margins.left, // x coord
-            margins.top, { // y coord
-                'width': margins.width, // max width of content on PDF
-                'elementHandlers': specialElementHandlers
-            },
+// pdf generator onClick function 
+        // $("#pdfBtn").click(function(){
+        //     // Your Twilio credentials
+        //     var SID = "ACd7cc7bb2098ad82117c5025a02de6e1d"
+        //     var Key = "ea13799bb683d4fdcb6662b64aac12f3"
 
-            function (dispose) {
-                // dispose: object with X, Y of the last line add to the PDF 
-                //          this allow the insertion of new lines after html
-                pdf.save('currency.pdf');
-            }, margins
-        );
-        console.log("Ending pdf on-Click function");
-        console.log("-----------------------------------");
-    };
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: 'https://api.twilio.com/2010-04-01/Accounts/' + SID + '/Messages.json',
+        //         data: {
+        //             "To" : "+16195362000",
+        //             "From" : "+16193047988",
+        //             "Body" : "Hello World"
+        //         },
+        //         beforeSend: function (xhr) {
+        //             xhr.setRequestHeader ("Authorization", "Basic " + btoa(SID + ':' + Key));
+        //         },
+        //         success: function(data) {
+        //             console.log(data);
+        //         },
+        //         error: function(data) {
+        //             console.log(data);
+        //         }
+        //     });
+        // });
+
+        // twilio sms onClick function 
+  
+
+
+        $("#pdfBtn").click(function(){
+            // Your Twilio credentials
+            var SID = "ACd7cc7bb2098ad82117c5025a02de6e1d"
+            var Key = "ea13799bb683d4fdcb6662b64aac12f3"
+            //This will target the user's phone number input
+            let phoneNum = $("#phoneNumberBox").val(); 
+            console.log(phoneNum);
+
+            $.ajax({
+                type: 'POST',
+                url: 'https://api.twilio.com/2010-04-01/Accounts/' + SID + '/Messages.json',
+                data: {
+                            "To" : "+1" + phoneNum,
+                            "From" : "+16193047988",
+                            "Body" : "Currency 1: " + window.box1CurrencyText + "Principal Amount: " + window.currency1AmmountText + "Currency 2: " + window.box2CurrencyText + "Converted Amount: " + window.convertedAmmountText + "Updated on: " + window.dateUpdatedText + "Exchange Rate: " + window.exchangeRate,
+                        },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader ("Authorization", "Basic " + btoa(SID + ':' + Key));
+                },
+                success: function(data) {
+                    console.log(data);
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        });
 
 //Licenses
 // Flags - flat provided under MIT licence by GoSquared
