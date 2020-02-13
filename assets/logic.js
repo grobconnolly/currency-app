@@ -30,7 +30,7 @@ $(document).ready(function() {
     function grabCurrencyList() {
         console.log("Requesting Currency lists...");
         console.log("A long wait may indicate slow internet connection...");
-        currencyKey = "4e8b520592221b3422775e55f28b2a2a";
+        currencyKey = "";
         let currencyListQueryURL = "http://api.currencylayer.com/list?access_key=" + 
         // API pull for live currencies to be added to dropdown
         $.ajax({
