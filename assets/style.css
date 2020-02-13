@@ -74,84 +74,15 @@ $table-cell-border-width: 0 0 1px !default */
 
 @media screen and (max-width: 800px){
 
-  .is-responsive
-    width: 100%
-    border-collapse: collapse
-    border-spacing: 0
-    display: block
-    position: relative
-
-    td:empty:before
-      content: '\00a0'
-
-    th,
-    td
-      margin: 0
-      vertical-align: top
-
-    th
-      text-align: left
-
-    thead
-      border-right: solid 2px $grey-lighter
-      display: block
-      float: left
-
-      tr
-        display: block
-        padding: 0 10px 0 0
-
-        th::before
-          content: "\00a0"
-      td,
-      th
-        border-width: 0 0 1px
-
-    tbody
-      display: block
-      width: auto
-      position: relative
-      overflow-x: auto
-      white-space: nowrap
-
-      tr
-        display: inline-block
-        vertical-align: top
-
-    th
-      display: block
-      text-align: right
-
-    td
-      display: block
-      min-height: 1.25em
-      text-align: left
-
-    th,
-    td
-      &:last-child
-        border-bottom-width: 0
-
-    tr
-      &:last-child
-        td:not(:last-child)
-          border: $table-cell-border
-          border-width: $table-cell-border-width
-
-    &.is-bordered
-      td,
-      th
-        border-width: 1px
-      tr
-        td,
-        th
-          &:last-child
-            border-bottom-width: 1px
-        &:last-child
-          td,
-          th
-            border-width: 1px
-}
+  .is-responsive {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    position: relative;
+  }
+  
+}  
 
 
 .last5 {
@@ -263,12 +194,14 @@ bottom: 50px;
 #tableCenter{
   margin-left: auto;
   margin-right: auto;
-  font-size: 14px;
+  font-size: 10px;
 }
 #color1withBorder{
-  width: 100%;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
+  font-size: 13px;
+
 }
 
 
@@ -281,4 +214,26 @@ footer{
   color: #FCF9F2;
   font-size: 26;
   text-align: center;
+}
+
+
+#footer {
+  background-color: #465A4F;
+  margin-left: auto;
+  margin-right: auto;
+  width: 104%;
+
+}
+
+.tableSpace {
+  margin-bottom: 1%;
+  background-color: #465A4F;
+  
+}
+.fa-heart{
+  color: red;
+}
+
+#btnLeft {
+  right: 400px;
 }
