@@ -31,7 +31,7 @@ $(document).ready(function() {
         console.log("Requesting Currency lists...");
         console.log("A long wait may indicate slow internet connection...");
         currencyKey = "4e8b520592221b3422775e55f28b2a2a";
-        let currencyListQueryURL = "http://api.currencylayer.com/list?access_key=" + currencyKey;
+        let currencyListQueryURL = "https://api.currencylayer.com/list?access_key=" + currencyKey;
         // API pull for live currencies to be added to dropdown
         $.ajax({
             url: currencyListQueryURL,
@@ -99,7 +99,7 @@ $(document).ready(function() {
 
         // Storing our URL for a 'Live' currency request
         apiKey = "4e8b520592221b3422775e55f28b2a2a";
-        liveQueryURL = "http://api.currencylayer.com/live?access_key=" + apiKey + "&source=" + box1CurrencyKey + "&currencies=" + box2CurrencyKey + "&format=1";
+        liveQueryURL = "https://api.currencylayer.com/live?access_key=" + apiKey + "&source=" + box1CurrencyKey + "&currencies=" + box2CurrencyKey + "&format=1";
         // Perfoming an AJAX GET request to our 'Live' queryURL
         $.ajax({
             url: liveQueryURL,
@@ -324,14 +324,14 @@ $(document).ready(function() {
             console.log("country2_A2");
 
             // Set variable for bitCoin symbol img URL
-            let bitCoinQueryURL = "http://icons.iconarchive.com/icons/froyoshark/enkel/64/Bitcoin-icon.png";
+            let bitCoinQueryURL = "https://icons.iconarchive.com/icons/froyoshark/enkel/64/Bitcoin-icon.png";
             // bitCoin img - http://www.iconarchive.com/icons/froyoshark/enkel/License.txt
                 // "This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license,
                 //visit http://creativecommons.org/licenses/by/4.0/or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA." 
 
             // If the currency chosen IS NOT Bitcoin...
             if (country1_A2 !== "BTC") {
-                let flag1QueryURL = "http://www.countryflags.io/" + country1_A2 + "/flat/64.png";
+                let flag1QueryURL = "https://www.countryflags.io/" + country1_A2 + "/flat/64.png";
                 $(flag1).attr("src",flag1QueryURL);
                 // Flags - flat provided under MIT licence by GoSquared
                 // MIT License - https://github.com/gosquared/flags/blob/master/LICENSE.txt
