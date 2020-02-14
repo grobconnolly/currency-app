@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,27 +13,20 @@
 </head>
   
 <body>
-
     <nav class="navbar is-focused is-fluid" id="color2" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="#">
                 <h1 id="fontColor1" class='titleText'>CurrencyExchangePro</h1>
             </a>
             <!-- hehe -->
-
-
             <a role="button" class="" aria-label="menu" aria-expanded="" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
         </div>
-
         <div id="navbarBasicExample" class="navbar-menu">
-
             <div></div>
-
-
             <div class="navbar-end">
                 <div class="navbar-item">
                     <h2 id="fontColor1" class="dateToday"></h2>
@@ -42,20 +34,13 @@
             </div>
         </div>
     </nav>
-
-
     <!-- Body-->
-
     <!-- Top Section -->
     <div id="color1" class="columns mainArea mainbox is-fluid">
-
-
         <!-- Outer-->
         <div class="column is-1.5">
         </div>
-
         <!-- Country 1-->
-
         <div id="color2withBorder" class="column is-4 currency1">
             <div class="field">
                 <label class="label boxHeader">Currency to convert from:</label>
@@ -74,21 +59,14 @@
                 <div class="control">
                     <input class="input" type="text" placeholder="1.00" id="currency1Ammount">
                 </div>
-
             </div>
-
             <div class="column has-background-light country1data">
-                <p class="has-text-left updated1">Last Updated:</p>
+                <p class="has-text-left updated1 smallerText">Last Updated:</p>
                 <p id="updatedTime1"></p>
-
-
             </div>
-
         </div>
         <!-- Blank Area Seperating-->
         <div class="column is-1 has-background-blank"></div>
-
-
         <!-- Country 2 -->
         <div id="color2withBorder" class="column is-4 currency2">
             <div class="field">
@@ -108,33 +86,19 @@
                 <div class="control">
                     <input class="input" type="text" placeholder="1.00" id="currency2Ammount"></p>
                 </div>
-
             </div>
-
-
             <div class="column has-background-light top-auto currency2data">
                 <p class="has-text-left" id="updated2">Exchange Rate:</p>
                 <p id="exchange"></p>
-
-
             </div>
-
         </div>
-
         <!-- Outer Colomn-->
         <div class="column is-1">
-
         </div>
-
     </div>
-
-
-
     <!-- section 2 -->
     
     <div id="smallHeight" class="color1 columns mainArea mainbox is-fluid">
-
-
             <!-- Outer-->
             <div class="column is-1.5">
             </div>
@@ -145,7 +109,6 @@
                     <button id="calBtn" class="button calButton color4">Calculate</button>
                 </div>
             
-
             <!-- Blank Area Seperating-->
             <div id="zeroPadding" class="column is-1 has-background-blank"></div>
     
@@ -160,10 +123,9 @@
                 <div class="field is-expanded">
                     <div class="field has-addons">
                         <p class="control">
-
                         </p>
-                        <p class="control is-expanded">
-                            <input id="phoneNumberBox" class="input" type="tel" placeholder="+16192224455">
+                        <p class="control is-expanded phoneTextBox">
+                            <input id="phoneNumberBox" class="input" type="tel" placeholder="6192224455">
                         </p>
                     </div>
                     <p id='help' class="help">Make sure you complete a search first.  Format 10 digits</p>
@@ -179,12 +141,6 @@
             </div>
     
         </div>
-
-
-
-
-
-
     <div id="color2" class="columns is-mobile last5 fiveArea">
         <div id="color1withBorder"
             class="column is-one-fifth has-text-centered fiveArea is-focused fontColor3">Previous Currency Checks</div>
@@ -215,7 +171,6 @@
                             <td id="value1-2History">--</td>
                             <td id="exchange1Rate">00.00%</td>
                             <td id="date1">--/--/----</td>
-
                         </tr>
                         <tr>
                             <td id="search2">--</td>
@@ -254,12 +209,9 @@
                             <td id="date5">--/--/----</td>
                         </tr>
                          -->
-
                     </tbody>
                 </table>
-
             </div>
-
             </table>
             
         </div>
@@ -283,7 +235,5 @@
     <script src="./assets/logic.js"></script>
     <!-- pdf logic sheet -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-
 </body>
-
 </html>
