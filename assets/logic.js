@@ -30,7 +30,7 @@ $(document).ready(function() {
     function grabCurrencyList() {
         console.log("Requesting Currency lists...");
         console.log("A long wait may indicate slow internet connection...");
-        currencyKey = "4e8b520592221b3422775e55f28b2a2a";
+        currencyKey = "";
         let currencyListQueryURL = "https://api.currencylayer.com/list?access_key=" + currencyKey;
         // API pull for live currencies to be added to dropdown
         $.ajax({
@@ -98,7 +98,7 @@ $(document).ready(function() {
         console.log("User currency 2 KEY : ", box2CurrencyKey); 
 
         // Storing our URL for a 'Live' currency request
-        apiKey = "4e8b520592221b3422775e55f28b2a2a";
+        apiKey = "";
         liveQueryURL = "https://api.currencylayer.com/live?access_key=" + apiKey + "&source=" + box1CurrencyKey + "&currencies=" + box2CurrencyKey + "&format=1";
         // Perfoming an AJAX GET request to our 'Live' queryURL
         $.ajax({
@@ -415,8 +415,8 @@ $(document).ready(function() {
 
         $("#pdfBtn").click(function(){
             // Your Twilio credentials
-            var SID = "ACd7cc7bb2098ad82117c5025a02de6e1d"
-            var Key = "ea13799bb683d4fdcb6662b64aac12f3"
+            var SID = ""
+            var Key = ""
             //This will target the user's phone number input
             let phoneNum = $("#phoneNumberBox").val(); 
             console.log(phoneNum);
